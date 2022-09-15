@@ -7,3 +7,5 @@ D:\Dev\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1784228694.index
 \yju2022_2\src\main\java
 D:\Dev\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4158360605.index
 \project\src\main\java
+D:\Dev\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2808170816.index
+\jsp_maria_crud\src\main\java
