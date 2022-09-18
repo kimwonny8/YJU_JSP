@@ -55,7 +55,6 @@
 			else {
 				System.out.println("레코드 추가 실패");
 				msg+="레코드 추가 실패";
-			}
 			break;
 	
 		case "D":

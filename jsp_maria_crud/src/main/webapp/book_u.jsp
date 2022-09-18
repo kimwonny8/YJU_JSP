@@ -60,13 +60,13 @@
 			<td><%= publisher %></td>
 			<td><%= year %></td>
 			<td><%= price %></td>
-			<td><a href="./book_u2.jsp?book_id=<%=book_id%> & title=<%=title%> & publisher=<%=publisher%> & year=<%=year%> & price=<%=price%>">수정</a></td>
+			<td><a href="./book_u2.jsp?book_id=<%=book_id%>&title=<%=title%>&publisher=<%=publisher%>&year=<%=year%>&price=<%=price%>">수정</a></td>
 		</tr>
 <%
 	}
 %>		
 	</tbody>
 	</table>
-	
+	<br><a href="./index.jsp">홈으로 돌아가기</a>
 </body>
 </html>
