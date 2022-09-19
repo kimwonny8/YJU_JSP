@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\OS"/>
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-11"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo" value="false"/>
@@ -31,7 +31,7 @@
 		<item key="patterns" value="*"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item key="index" value="0"/>
+		<item key="index" value="7"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>

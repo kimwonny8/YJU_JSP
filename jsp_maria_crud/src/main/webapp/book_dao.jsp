@@ -55,6 +55,7 @@
 			else {
 				System.out.println("레코드 추가 실패");
 				msg+="레코드 추가 실패";
+			}
 			break;
 	
 		case "D":
@@ -101,10 +102,9 @@
 			}
 			break;
 	}
-	
 %>	
-
 <h2><%=msg %></h2>
 <br><a href="./index.jsp">홈으로 돌아가기</a>
+
 </body>
 </html>
