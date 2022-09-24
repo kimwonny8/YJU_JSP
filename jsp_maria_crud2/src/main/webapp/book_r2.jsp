@@ -51,11 +51,21 @@
 	currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
 	startRecord = currentPageNo * 10;
 	
+/*	
 	String sql = "select * from books order by book_id limit ";
 	sql += startRecord + "," + limitCnt;
 	// limit 0, 10 => 0번 인덱스부터 10개를 가져옴
 	
 	ResultSet rs=stmt.executeQuery(sql);
+*/	
+	
+
+	String sql = "select * from books order by book_id limit ?, ?";
+	PreparedStatement pstmt = con.prepareStatement(sql);
+	pstmt.setInt(1,startRecord);
+	pstmt.setInt(2,limitCnt);
+	ResultSet rs=pstmt.executeQuery();
+	
 %>
 
 	<table border="1">

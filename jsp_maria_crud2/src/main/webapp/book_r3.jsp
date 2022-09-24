@@ -24,7 +24,7 @@
 	ResultSet rs2=stmt.executeQuery(sql2);
 	
 	int recordCnt=0;
-	int pageCnt;
+	
 	// 페이징 처리하려고 만든 변수
 	int startRecord = 0;
 	int limitCnt = Integer.parseInt(request.getParameter("limitCnt"));
@@ -34,7 +34,7 @@
 	while(rs2.next()){
 		recordCnt = rs2.getInt(1); // count(*) 가져와서 담음
 	}
-	pageCnt = recordCnt/limitCnt;
+	int pageCnt = recordCnt/limitCnt;
 	if(recordCnt%limitCnt !=0) pageCnt++; // 남아있는 게 더 있다면 다음 페이지 있어야함~!
 
 	int book_id;
@@ -113,8 +113,9 @@
 	[이전]
 <% 
 	}
-
-	for(int i=0; i<pageCnt; i++){
+	int pageNo=currentPageNo/10; // 0부터 시작
+	for(int i=pageNo*10; i<(pageNo+1)*10; i++){
+		if(i>pageCnt-1) break;
 		if(i==currentPageNo){
 %>
 			[<%=(i+1)%>]			
