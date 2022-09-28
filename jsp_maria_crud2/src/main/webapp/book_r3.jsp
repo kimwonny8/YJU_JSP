@@ -113,12 +113,13 @@
 	[이전]
 <% 
 	}
+	
 	int pageNo=currentPageNo/10; // 0부터 시작
 	for(int i=pageNo*10; i<(pageNo+1)*10; i++){
 		if(i>pageCnt-1) break;
 		if(i==currentPageNo){
 %>
-			[<%=(i+1)%>]			
+			[<%=(i+1)%>]
 <%
 		}else { 
 %>
