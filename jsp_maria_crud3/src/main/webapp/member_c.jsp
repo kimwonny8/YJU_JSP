@@ -5,14 +5,15 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>sign-up </title>
+<title>sign-up</title>
 </head>
 <body>
-<form method="post" action="./member_dao.jsp">
+
 <div>
 <a href="./member.jsp">홈으로</a>
 <h1>회원가입</h1>
 </div>
+<form method="post" action="./member_dao.jsp">
 <div>
 아이디 : <input type="text" name="mb_id" size="30" >
 <br> 비밀번호 : <input type="password" name="mb_pw" size="30">

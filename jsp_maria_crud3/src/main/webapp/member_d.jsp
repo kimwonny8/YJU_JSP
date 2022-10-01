@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>quit</title>
 </head>
 <body>
 <%
@@ -17,6 +17,7 @@
 <br> 비밀번호 : <input type="password" name="mb_pw" size="30">
 <br> 비밀번호 확인 : <input type="password" name="mb_pw2" size="30">
 <input type="hidden" name="actionType" value="memberDelete">
+<input type="hidden" name="mb_id" value="<%=mb_id%>">
 <input type="submit" value="회원탈퇴">
 </form>
 </body>

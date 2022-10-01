@@ -37,7 +37,7 @@
 <input type="hidden" name="actionType" value="signOut">
 <input type="submit" value="로그아웃">
 <a href="./member_d.jsp?mb_id=<%=mb_id%>">회원탈퇴</a>
-<a href="./member_u.jsp?mb_id=<%=mb_num%>">회원수정</a>
+<a href="./member_u.jsp?mb_id=<%=mb_id%>">회원수정</a>
 <% } %>
 </form>
 </body>
