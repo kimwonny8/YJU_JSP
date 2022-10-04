@@ -10,7 +10,7 @@
 <body>
 
 <div>
-<a href="./member.jsp">홈으로</a>
+<a href="./index.jsp">홈으로</a>
 <h1>회원가입</h1>
 </div>
 <form method="post" action="./member_dao.jsp">
