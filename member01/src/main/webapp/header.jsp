@@ -16,10 +16,10 @@
 	}
 %>
 
-<table>
- <tr>
+<table width="100%">
+ <tr >
 	 <td><img src="/member01/images/yju_logo_01.png"/></td> 
-	 <td width="400" align="center"><h1>회원관리 시스템 V0.1</h1></td> 
+	 <td><p>회원관리 시스템 V0.1</p></td> 
 	 <td>
 <%
 		if(session.getAttribute("loginState").equals("login")

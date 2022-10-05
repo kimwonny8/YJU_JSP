@@ -17,5 +17,7 @@
 	  <td><a href="/member01/mem_views/member05.jsp">GNB05</a></td>
 	</tr>
 	</table>
+	<img src="/member01/images/banner.png" width=100%/>
+	
 </body>
 </html>

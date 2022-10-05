@@ -8,6 +8,9 @@
 </head>
 <body>
  <hr>
- COPYRIGHT(C) KDHONG. ALL RIGHTS RESEVED. 
+ 	<div  style ="text-align:center">
+ 	<img src="/member01/images/footer.png" width="70%" />
+ 	<p> COPYRIGHT(C) KDHONG. ALL RIGHTS RESEVED. </p>
+	</div>
 </body>
 </html>

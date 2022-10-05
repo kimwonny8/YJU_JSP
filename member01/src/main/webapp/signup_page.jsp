@@ -28,6 +28,6 @@ session.setAttribute("loginState", "signup");
 <input type="submit" value="회원가입">
 </form>
 
-
+<%@ include file="./footer.jsp" %>
 </body>
 </html>

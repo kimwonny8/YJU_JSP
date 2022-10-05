@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 <% session.setAttribute("loginState", "adjust"); %>
@@ -36,7 +37,7 @@ String mem_class;
 String mem_class_name="";
 
 %>
-	<table border="1" width="80%" height="100%" style="text-align:center">
+	<table class="table table-striped table-hover" border="1" width="80%" height="100%" style="text-align:center">
 		<thead>
 			<tr>
 				<th>번호</th>
