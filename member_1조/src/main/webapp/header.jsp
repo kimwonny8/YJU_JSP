@@ -5,9 +5,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
+<style>
+.loginbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-right:2vw;
+}
 
+.loginbar > p {
+padding-left:5vw;
+color: gray;
+}
+
+.menubar {
+padding: 2vh 0;
+border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.menubar > button {
+margin-left:4vw;
+border: 0;
+}
+</style>
+</head>
+
+<body>
 <%
 	if(session.isNew()){
 		session.setAttribute("loginState", "logout");
@@ -15,21 +38,15 @@
 		session.setAttribute("userpw", null);
 	}
 %>
-
-<table>
- <tr>
-	 <td><img src="/member_1조/images/yju_logo_01.png"/></td> 
-	 <td width="400" align="center"><h1>회원관리 시스템 V0.1</h1></td> 
-	 <td>
+<div class="loginbar">
+	<p>회원관리 시스템 V0.1</p>
 <%
-		if(session.getAttribute("loginState").equals("login")
-			|| session.getAttribute("loginState").equals("adjust")) {
-%>
-			<%=session.getAttribute("userid")%>님 로그인중.
-<% 
+		if(session.getAttribute("loginState").equals("login")) {
+
 			if(session.getAttribute("userclass").equals("30")){
 %>
 			<form name="logout" method="post" action="/member_1조/mem_models/member_dao.jsp">
+			  <%=session.getAttribute("userid")%>님 로그인중
 			  <input type="hidden" name="actionType" value="LOGOUT">
 			  <input type="submit" value="로그아웃">
 			  <a href="/member_1조/manage_index_page.jsp">관리하기</a>
@@ -39,6 +56,7 @@
 			else {
 %>
 				<form name="logout" method="post" action="/member_1조/mem_models/member_dao.jsp">
+				  <%=session.getAttribute("userid")%>님 로그인중
 				  <input type="hidden" name="actionType" value="LOGOUT">
 				  <input type="submit" value="로그아웃">
 				</form> 
@@ -64,11 +82,12 @@
 			}
 		}
 
-		//else {}
 %>		
-	 </td>
- </tr>
-</table>
+	</div>
+	<div class="menubar">
+	<a href="/member_1조/index.jsp"><button type="button"><img src="/member_1조/images/yju_logo_01.png" width=100%></a>
+	</button>
+		
 <%
 		if(session.getAttribute("loginState").equals("login")){
 %>
@@ -76,6 +95,6 @@
 <%
 		}
 %>
-<hr> 
+	</div>
 </body>
 </html>

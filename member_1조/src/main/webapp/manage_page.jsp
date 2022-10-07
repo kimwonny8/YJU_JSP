@@ -9,9 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	session.setAttribute("loginState", "adjust");
-	%>
+
 	<%@ include file="./header.jsp"%>
 	<h1>관리자 페이지</h1>
 
@@ -68,19 +66,15 @@
 	String mem_phone;
 	String mem_RRN;
 	String mem_class;
+	String mem_class_name = "";
 	
 	session.setAttribute("searchClass",request.getParameter("searchClass"));
 	String searchClass=(String)session.getAttribute("searchClass");
-	
-	String mem_class_name = "";
-	
+
 	session.setAttribute("pageRange",request.getParameter("pageRange"));
-	
 	String pageRange_String=(String)session.getAttribute("pageRange");
 	
-	int pageRange=Integer.parseInt(pageRange_String);
-	System.out.println(pageRange);
-	
+	int pageRange=Integer.parseInt(pageRange_String);	
 	int recordCnt = 0;
 
 	while (rs2.next()) {

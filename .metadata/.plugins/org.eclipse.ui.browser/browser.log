@@ -180,3 +180,25 @@
 10월 07, 2022 16:49:54.588 [11868:11532:1007/164954.588:ERROR:device_event_log_impl.cc(214)] [16:49:54.587] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 07, 2022 16:49:54.594 [11868:11532:1007/164954.594:ERROR:device_event_log_impl.cc(214)] [16:49:54.593] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 07, 2022 16:49:54.594 [11868:11532:1007/164954.594:ERROR:device_event_log_impl.cc(214)] [16:49:54.593] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+10월 07, 2022 18:01:33.221 NEW SESSION
+10월 07, 2022 18:01:33.222 [4508:11796:1007/180133.219:ERROR:device_event_log_impl.cc(214)] [18:01:33.220] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 18:01:33.222 [4508:11796:1007/180133.220:ERROR:device_event_log_impl.cc(214)] [18:01:33.220] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 18:02:30.906 [4508:10580:1007/180230.906:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 18:16:53.376 [4508:11796:1007/181653.375:ERROR:device_event_log_impl.cc(214)] [18:16:53.373] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 07, 2022 18:16:53.412 [4508:11796:1007/181653.411:ERROR:device_event_log_impl.cc(214)] [18:16:53.410] USB: usb_service_win.cc:307 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+10월 07, 2022 18:38:47.239 [4600:3660:1007/183847.239:ERROR:device_event_log_impl.cc(214)] [18:38:47.239] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 18:38:47.245 [4600:3660:1007/183847.245:ERROR:device_event_log_impl.cc(214)] [18:38:47.245] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 18:38:47.245 [4600:3660:1007/183847.245:ERROR:device_event_log_impl.cc(214)] [18:38:47.245] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 18:39:44.960 [4600:7124:1007/183944.960:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 19:21:24.990 [4600:10436:1007/192124.990:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+
+10월 07, 2022 22:24:23.934 NEW SESSION
+10월 07, 2022 22:24:23.934 [9096:8872:1007/222423.932:ERROR:device_event_log_impl.cc(214)] [22:24:23.932] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 22:24:23.941 [9096:8872:1007/222423.941:ERROR:device_event_log_impl.cc(214)] [22:24:23.940] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 22:24:23.941 [9096:8872:1007/222423.941:ERROR:device_event_log_impl.cc(214)] [22:24:23.940] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 22:25:21.585 [9096:14180:1007/222521.585:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 22:43:38.96 [9096:8872:1007/224338.095:ERROR:interface_endpoint_client.cc(689)] Message 0 rejected by interface blink.mojom.WidgetHost
+10월 07, 2022 22:48:48.980 [9096:8872:1007/224848.980:ERROR:CONSOLE(1)] "Request Runtime.evaluate failed. {"code":-32602,"message":"uniqueContextId not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+10월 07, 2022 22:48:48.981 [9096:8872:1007/224848.981:ERROR:CONSOLE(1)] "uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
+10월 07, 2022 22:48:48.982 [9096:8872:1007/224848.981:ERROR:CONSOLE(1)] "Extension server error: Inspector protocol error: uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/models/extensions/extensions.js (1)

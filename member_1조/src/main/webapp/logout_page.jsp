@@ -8,7 +8,7 @@
 </head>
 <body>
 
- <img src="/member_1조/images/yju_01.PNG"/>
+ <img src="/member_1조/images/yju_01.PNG" width="100%"/>
 
 </body>
 </html>

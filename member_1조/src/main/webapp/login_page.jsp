@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
  <img src="/member_1조/images/yju_com_01.jpg"/>
  
  <ul>

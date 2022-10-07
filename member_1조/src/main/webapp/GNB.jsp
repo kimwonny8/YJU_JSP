@@ -7,15 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<hr>
-	<table>
-	<tr>
-	  <td><a href="/member_1조/mem_views/member01.jsp">GNB01</a></td>
-	  <td><a href="/member_1조/mem_views/member02.jsp">GNB02</a></td>
-	  <td><a href="/member_1조/mem_views/member03.jsp">GNB03</a></td>
-	  <td><a href="/member_1조/mem_views/member04.jsp">GNB04</a></td>
-	  <td><a href="/member_1조/mem_views/member05.jsp">GNB05</a></td>
-	</tr>
-	</table>
+	<div>
+	   <a href="/member_1조/mem_views/member01.jsp">GNB01</a> 
+	   <a href="/member_1조/mem_views/member02.jsp">GNB02</a> 
+	   <a href="/member_1조/mem_views/member03.jsp">GNB03</a> 
+	   <a href="/member_1조/mem_views/member04.jsp">GNB04</a> 
+	   <a href="/member_1조/mem_views/member05.jsp">GNB05</a> 
+	</div>
+		<img src="/member_1조/images/banner.png" width=100%/>
 </body>
 </html>
