@@ -146,3 +146,37 @@
 10월 04, 2022 19:55:00.373 [6048:4688:1004/195500.373:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
 10월 04, 2022 19:55:03.888 [6048:4688:1004/195503.888:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
 10월 04, 2022 19:56:39.512 [6048:4688:1004/195639.512:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
+
+10월 05, 2022 17:36:48.251 NEW SESSION
+10월 05, 2022 17:36:48.251 [7668:7680:1005/173648.249:ERROR:device_event_log_impl.cc(214)] [17:36:48.249] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:36:48.255 [7668:7680:1005/173648.254:ERROR:device_event_log_impl.cc(214)] [17:36:48.255] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:36:48.255 [7668:7680:1005/173648.254:ERROR:device_event_log_impl.cc(214)] [17:36:48.255] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:37:45.845 [7668:10340:1005/173745.845:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 05, 2022 17:43:42.906 [9148:10176:1005/174342.905:ERROR:device_event_log_impl.cc(214)] [17:43:42.905] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:43:42.912 [9148:10176:1005/174342.911:ERROR:device_event_log_impl.cc(214)] [17:43:42.911] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:43:42.912 [9148:10176:1005/174342.912:ERROR:device_event_log_impl.cc(214)] [17:43:42.911] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 05, 2022 17:44:40.232 [9148:1240:1005/174440.231:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 07, 2022 13:48:28.413 NEW SESSION
+10월 07, 2022 13:48:28.413 [7844:8536:1007/134828.410:ERROR:device_event_log_impl.cc(214)] [13:48:28.410] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:48:28.416 [7844:8536:1007/134828.415:ERROR:device_event_log_impl.cc(214)] [13:48:28.415] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:48:28.416 [7844:8536:1007/134828.415:ERROR:device_event_log_impl.cc(214)] [13:48:28.415] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:49:26.84 [7844:10328:1007/134926.084:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 13:49:45.682 [724:1336:1007/134945.682:ERROR:device_event_log_impl.cc(214)] [13:49:45.682] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:49:45.688 [724:1336:1007/134945.687:ERROR:device_event_log_impl.cc(214)] [13:49:45.688] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:49:45.688 [724:1336:1007/134945.688:ERROR:device_event_log_impl.cc(214)] [13:49:45.688] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 13:50:43.443 [724:8324:1007/135043.443:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 14:18:03.377 [724:1336:1007/141803.377:ERROR:device_event_log_impl.cc(214)] [14:18:03.373] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 07, 2022 14:28:23.552 [724:1336:1007/142823.551:ERROR:interface_endpoint_client.cc(689)] Message 0 rejected by interface blink.mojom.WidgetHost
+10월 07, 2022 14:32:29.764 [724:1336:1007/143229.764:ERROR:interface_endpoint_client.cc(689)] Message 0 rejected by interface blink.mojom.WidgetHost
+10월 07, 2022 14:35:00.500 [724:1336:1007/143500.499:ERROR:interface_endpoint_client.cc(689)] Message 0 rejected by interface blink.mojom.WidgetHost
+
+10월 07, 2022 16:11:06.434 NEW SESSION
+10월 07, 2022 16:11:06.434 [2728:7948:1007/161106.433:ERROR:device_event_log_impl.cc(214)] [16:11:06.433] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 16:11:06.439 [2728:7948:1007/161106.439:ERROR:device_event_log_impl.cc(214)] [16:11:06.439] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 16:11:06.439 [2728:7948:1007/161106.439:ERROR:device_event_log_impl.cc(214)] [16:11:06.439] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 16:12:04.337 [2728:500:1007/161204.336:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 07, 2022 16:12:30.514 [2728:7948:1007/161230.514:ERROR:device_event_log_impl.cc(214)] [16:12:30.481] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+10월 07, 2022 16:49:54.588 [11868:11532:1007/164954.588:ERROR:device_event_log_impl.cc(214)] [16:49:54.587] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 16:49:54.594 [11868:11532:1007/164954.594:ERROR:device_event_log_impl.cc(214)] [16:49:54.593] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 16:49:54.594 [11868:11532:1007/164954.594:ERROR:device_event_log_impl.cc(214)] [16:49:54.593] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

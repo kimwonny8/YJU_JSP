@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="userID_DUMMY"/>
+		<item key="selection" value="member_1조"/>
 		<list key="findhistory">
+			<item value="member01"/>
+			<item value="member_01"/>
+			<item value="mem_class"/>
 			<item value="userID_DUMMY"/>
 			<item value="mb"/>
 			<item value="loginState"/>
@@ -17,6 +20,8 @@
 			<item value="html"/>
 		</list>
 		<list key="replacehistory">
+			<item value="member_1조"/>
+			<item value="member_01"/>
 			<item value=""/>
 			<item value="mem"/>
 			<item value="mb_birth"/>
