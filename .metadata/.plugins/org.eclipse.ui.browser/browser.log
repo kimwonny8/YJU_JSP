@@ -202,3 +202,9 @@
 10월 07, 2022 22:48:48.980 [9096:8872:1007/224848.980:ERROR:CONSOLE(1)] "Request Runtime.evaluate failed. {"code":-32602,"message":"uniqueContextId not found"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
 10월 07, 2022 22:48:48.981 [9096:8872:1007/224848.981:ERROR:CONSOLE(1)] "uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/core/sdk/sdk.js (1)
 10월 07, 2022 22:48:48.982 [9096:8872:1007/224848.981:ERROR:CONSOLE(1)] "Extension server error: Inspector protocol error: uniqueContextId not found", source: devtools://devtools/bundled/devtools-frontend/front_end/models/extensions/extensions.js (1)
+
+10월 07, 2022 23:28:28.703 NEW SESSION
+10월 07, 2022 23:28:28.703 [3752:7996:1007/232828.702:ERROR:device_event_log_impl.cc(214)] [23:28:28.702] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 23:28:28.710 [3752:7996:1007/232828.710:ERROR:device_event_log_impl.cc(214)] [23:28:28.710] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 23:28:28.711 [3752:7996:1007/232828.710:ERROR:device_event_log_impl.cc(214)] [23:28:28.710] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 07, 2022 23:29:26.332 [3752:13076:1007/232926.332:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

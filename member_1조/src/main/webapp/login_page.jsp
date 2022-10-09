@@ -15,6 +15,7 @@
   <li> <a href="/member_1조/mem_views/member03.jsp">회원관리페이지03</a>
   <li> <a href="/member_1조/mem_views/member04.jsp">회원관리페이지04</a>
   <li> <a href="/member_1조/mem_views/member05.jsp">회원관리페이지05</a>
+  <li> <a href="./member_U&D_pwCheck.jsp">수정</a>
  </ul>
 
 </body>

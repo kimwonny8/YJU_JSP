@@ -29,11 +29,12 @@
 
     int mem_num;
    String mem_name;
-    String mem_id;
-   String mem_passwd;
+   String mem_id="";
+   String mem_passwd="";
    String mem_email;
    String mem_phone;
-   String mem_RRN;
+   String mem_RRN1;
+   String mem_RRN2;
    String mem_class;
    
    String userID;
@@ -89,7 +90,8 @@
          mem_passwd=request.getParameter("mem_passwd");
          mem_email=request.getParameter("mem_email");
          mem_phone=request.getParameter("mem_phone");
-         mem_RRN=request.getParameter("mem_RRN");
+         mem_RRN1=request.getParameter("mem_RRN1");
+         mem_RRN2=request.getParameter("mem_RRN2");
          
          sql="insert into member (mem_name, mem_id, mem_passwd, mem_email, mem_phone, mem_RRN)";
          sql+="values (?, ?, ?, ?, ?, ?)";
@@ -99,7 +101,7 @@
          pstmt.setString(3, mem_passwd);
          pstmt.setString(4, mem_email);
          pstmt.setString(5, mem_phone);
-         pstmt.setString(6, mem_RRN);
+         pstmt.setString(6, mem_RRN1 + "-" + mem_RRN2);
          rs = pstmt.executeQuery();
          
          //session.setAttribute("loginState", "logout");
@@ -144,9 +146,83 @@
          </script>
 <%         break;
          
-      default:
-         break;
-   }
+      case "mem_check_pw":
+    	  session.setAttribute("passwdCheck", null);
+			
+			String userPW_check = request.getParameter("passwdCK"); //입력한 비밀번호 가져오기
+			
+			sql = "SELECT * FROM member WHERE mem_num = " + Integer.parseInt(request.getParameter("mem_num"));
+			ResultSet rs2 = stmt.executeQuery(sql);
+			
+			System.out.println(sql);
+			
+			while(rs2.next()){
+				mem_passwd = rs2.getString("mem_passwd");
+			}
+			if(userPW_check.equals(mem_passwd) && mem_passwd!=""){
+				System.out.println("일치");
+				session.setAttribute("passwdCheck", "true");
+				response.sendRedirect("../member_U&D.jsp"); //패스워드 일치 시 수정페이지로 리다이렉트
+				
+			}else{
+				System.out.println("불일치");
+				session.setAttribute("passwdCheck", "false");
+				response.sendRedirect("../member_U&D_pwCheck.jsp"); //불일치 시 확인창으로 리다이렉트(+경고창)
+			}
+			break;
+			
+		//테이블 레코드 수정(회원정보 수정)
+		case "mem_U":
+			mem_id = request.getParameter("mem_id");
+			mem_passwd = request.getParameter("mem_passwd");
+			
+			sql = "UPDATE member ";
+			sql += "SET mem_id = '" + request.getParameter("mem_id") + "' ";
+			sql += ", mem_passwd = '" + request.getParameter("mem_passwd") + "' ";
+			sql += ", mem_email = '" + request.getParameter("mem_email") + "' ";
+			sql += ", mem_phone = '" + request.getParameter("mem_phone") + "' ";
+			sql += "WHERE mem_num = " + Integer.parseInt(request.getParameter("mem_num"));
+			
+			System.out.println(sql);
+			result = stmt.executeUpdate(sql);//SQL문 실행
+				
+			if(result == 1){
+				System.out.println("회원정보 수정 성공");
+				response.sendRedirect("../index.jsp");
+			}
+			else{
+				System.out.println("회원정보 수정 실패");
+				response.sendRedirect("../member_U&D.jsp");	
+			}
+			session.setAttribute("userid", mem_id); //세션 객체에 회원ID 갱신
+			break;
+		
+		//테이블 레코드 삭제(회원탈퇴)
+		case "mem_D":
+			sql = "DELETE FROM member ";
+			sql += "WHERE mem_num = " + Integer.parseInt(request.getParameter("mem_num"));
+			
+			System.out.println(sql);
+			
+			result = stmt.executeUpdate(sql);//SQL문 실행
+
+			if(result == 1){
+				System.out.println("회원 탈퇴 성공");
+				session.setAttribute("userid", null);
+				session.setAttribute("userpw", null);
+				session.setAttribute("loginState", "logout");
+				session.invalidate();//설정된 세션의 값 삭제
+			}
+			else {
+				System.out.println("회원 탈퇴 실패");
+			}
+			response.sendRedirect("../index.jsp");
+			break;
+			
+		default:
+			response.sendRedirect("../index.jsp");
+			break;
+	}
 %>
 
 <%-- <jsp:forward page="../index.jsp"/> --%>

@@ -5,16 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="./lib/jquery-3.6.1.js"></script>
-<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<title>관리자 페이지 - 회원 관리</title>
+	<style>
+		.selBtn {
+			font-weight: bold;
+		
+		}
+	</style>
+
 </head>
 <body>
-
 	<%@ include file="./header.jsp"%>
 	<h1>관리자 페이지</h1>
 
 	<form method = "post" action = "./manage_page.jsp" id = "combo">
 			<select name="pageRange" >
+				<option value="3" selected>3개씩 보기</option>
 				<option value="10" selected>10개씩 보기</option>
 				<option value="20">20개씩 보기</option>
 				<option value="50">50개씩 보기</option>
@@ -29,8 +37,30 @@
 			<input type= "hidden" name = "currentPageNo" value="0">
 			<input type="submit" value="확인">
 	</form>
+	
+	<script>
+		function manageDelete(userNum){
+			
+		var result = confirm("탈퇴 하시겠습니까?");
+		if(result){
+			location.href="/member_1조/mem_models/member_dao.jsp?mem_num="+userNum+"&actionType=DELETE";
+		}
+		}
+		
+		function gotoPage(currentPageNo, pageRange, searchClass, pageCnt){
+			console.log(currentPageNo + "-" + pageCnt)
+			if (parseInt(currentPageNo) >= 0 && parseInt(currentPageNo) < parseInt(pageCnt)){
+				location.href = "./manage_page.jsp?currentPageNo="+currentPageNo+"&pageRange="+pageRange+"&searchClass="+searchClass;
+			}
+			else{
+				alert("[!]페이지의 시작이나 끝입니다");
+			}
+		}
+	
+	
+	</script>
 
-	<table border="1" width="80%" height="100%" style="text-align: center">
+	<table border="1" width="80%" height="100%" style="text-align: center" class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -76,9 +106,8 @@
 	
 	int pageRange=Integer.parseInt(pageRange_String);	
 	int recordCnt = 0;
-
 	while (rs2.next()) {
-		recordCnt = rs2.getInt(1);
+		recordCnt++;
 	}
 
 	int pageCnt = recordCnt / pageRange;
@@ -150,15 +179,13 @@
 						</select> <input type="hidden" name="mem_num" value="<%=mem_num%>">
 						<input type="hidden" name="actionType" value="MANAGE_ADJUST">
 						<input type="submit" value="수정">
+						<input type="button" value="삭제" onclick="manageDelete('<%=mem_num%>')">
 						<%
 						}
 						%>
 					</form>
 				</td>
-				<td>
-				<a href="/member_1조/mem_models/member_dao.jsp?mem_num=<%=mem_num%>&actionType=DELETE" onclick="return confirm('정말 삭제 하시겠습니까?');">탈퇴</a>
-			</td>
-				
+		
 			</tr>
 			<%
 			}
@@ -166,49 +193,23 @@
 		</tbody>
 	</table>
 
-	<a href="./manage_page.jsp?currentPageNo=0&pageRange=<%=pageRange%>&searchClass=<%=searchClass%>">[First]</a>
-
+	<input type="button" class="pageBtn" value="First" onClick="gotoPage(0,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+	<input type="button" class="pageBtn" value="Prev" onClick="gotoPage(<%=(currentPageNo -1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
 	<%
-	if (currentPageNo > 0) {
-	%>
-	<a
-		href="./manage_page.jsp?currentPageNo=<%=(currentPageNo -1)%>&pageRange=<%=pageRange%>&searchClass=<%=searchClass%>">[Prev]</a>
-	<%
-	} else {
-	%>
-	[Prev]
-	<%
-	}
 
 	for (int i = pageN; i < pageN + 10; i++) {
 
-	if (i == currentPageNo) {
-	%>
-	[<%=(i + 1)%>]
-	<%
-	} else if (i < pageCnt) {
-	%>
-	<a
-		href="./manage_page.jsp?currentPageNo=<%=i%>&pageRange=<%=pageRange%>&searchClass=<%=searchClass%>">[<%=(i + 1)%>]
-	</a>
-	<%
-	}
-	}
-	%>
+		if (i == currentPageNo) {%> 
+			<input type="button" class="pageBtn selBtn" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
+		} else if (i < pageCnt) {%>
+			<input type="button" class="pageBtn" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
+		} 
+	}%>
+	
+	<input type="button" class="pageBtn" value="Next" onClick="gotoPage(<%=(currentPageNo +1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+	<input type="button" class="pageBtn" value="End" onClick="gotoPage(<%=(pageCnt - 1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+	
 
-	<%
-	if (currentPageNo < pageCnt - 1) {
-	%>
-	<a
-		href="./manage_page.jsp?currentPageNo=<%=(currentPageNo + 1)%>&pageRange=<%=pageRange%>&searchClass=<%=searchClass%>">[Next]</a>
-	<%
-	} else {
-	%>
-	[Next]
-	<%
-	}
-	%>
-	<a
-		href="./manage_page.jsp?currentPageNo=<%=(pageCnt - 1)%>&pageRange=<%=pageRange%>&searchClass=<%=searchClass%>">[End]</a>
+	
 </body>
 </html>
