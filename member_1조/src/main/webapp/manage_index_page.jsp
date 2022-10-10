@@ -43,7 +43,7 @@ width: 10vw;
  %>
 <div class="contents">
 
- <h1  style ="text-align:center">관리자 페이지</h1>
+ <h1 style ="text-align:center">관리자 페이지</h1>
  <div class="menu">
  <button type="button" class="adjustBtn" onclick="location.href='/member_1조/manage_page.jsp?currentPageNo=0&pageRange=10&searchClass=0'">
   <img class="menuIcon" src="https://cdn-icons-png.flaticon.com/512/456/456283.png">
