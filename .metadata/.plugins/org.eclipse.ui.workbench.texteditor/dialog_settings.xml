@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=" "/>
+		<item key="selection" value="selectNum"/>
 		<list key="findhistory">
+			<item value="selBtn"/>
+			<item value="borderGray"/>
+			<item value="th"/>
 			<item value="&lt;/td&gt;"/>
 			<item value="&lt;td&gt;"/>
 			<item value="member01"/>
@@ -22,6 +25,8 @@
 			<item value="html"/>
 		</list>
 		<list key="replacehistory">
+			<item value="selectNum"/>
+			<item value="selectBtn"/>
 			<item value=" "/>
 			<item value="member_1조"/>
 			<item value="member_01"/>

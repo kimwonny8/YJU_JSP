@@ -7,6 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script>
+
+	function gotoIndex(){
+		var result = confirm("[!]회원 정보가 맞지 않습니다");
+		if(result){
+			location.href="/member_1조/index.jsp";
+		}
+	}
+</script>
+
 </head>
 <body>
 
@@ -27,7 +38,7 @@
    
     String actionType = request.getParameter("actionType");
 
-    int mem_num;
+   int mem_num;
    String mem_name;
    String mem_id="";
    String mem_passwd="";
@@ -43,39 +54,41 @@
    int loginState;
 
    switch(actionType){
-      case "LOGIN":
-         userID = request.getParameter("userid");
-          userPW = request.getParameter("passwd");
+   case "LOGIN":
+       userID = request.getParameter("userid");
+        userPW = request.getParameter("passwd");
+        
+        pstmt = con.prepareStatement("select mem_id, mem_passwd, mem_class from member where mem_id = ?");
+       pstmt.setString(1, userID);
+       rs = pstmt.executeQuery();
+       System.out.print(userID + " " + userPW);
+       if(rs.next()){
+          String userID_DUMMY = rs.getString("mem_id");
+          String userPW_DUMMY = rs.getString("mem_passwd");
+          String userclass = rs.getString("mem_class");
           
-          pstmt = con.prepareStatement("select mem_id, mem_passwd, mem_class from member where mem_id = ?");
-         pstmt.setString(1, userID);
-         rs = pstmt.executeQuery();
-         
-         if(rs.next()){
-            String userID_DUMMY = rs.getString("mem_id");
-            String userPW_DUMMY = rs.getString("mem_passwd");
-            String userclass = rs.getString("mem_class");
-            
-              if(userID.equals(userID_DUMMY)){
-                   if(userPW.equals(userPW_DUMMY)){
-                      session.setAttribute("loginState", "login");
-                      session.setAttribute("userid", userID);
-                      session.setAttribute("userpw", userPW);
-                      session.setAttribute("userclass", userclass);
-                   }else{
-                      session.setAttribute("loginState", "errorPW");
-                   }
-                }else{
-                   session.setAttribute("loginState", "errorID");
-                }      
-         }
-         else {
-            %>
-            alert("존재하지 않는 아이디입니다.");
-            <% 
-         }
-         response.sendRedirect("../index.jsp");
-          break;
+            if(userID.equals(userID_DUMMY)){
+                 if(userPW.equals(userPW_DUMMY)){
+                    session.setAttribute("loginState", "login");
+                    session.setAttribute("userid", userID);
+                    session.setAttribute("userpw", userPW);
+                    session.setAttribute("userclass", userclass);
+                    response.sendRedirect("../index.jsp");
+                 }
+              } 
+       }
+      
+       %>
+       <script>
+			var result = confirm("[!]회원 정보가 맞지 않습니다");
+			if(result){
+				location.href="/member_1조/login_page.jsp";
+			}
+		</script>
+       
+       <%
+
+        break;
           
       case "LOGOUT":
          session.setAttribute("userid", null);

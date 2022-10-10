@@ -5,7 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <style>
+*{
+font-family: 'Noto Sans KR', sans-serif;
+}
 .contents{
 width: 50%;
 margin: auto;

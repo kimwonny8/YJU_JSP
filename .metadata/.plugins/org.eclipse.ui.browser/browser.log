@@ -208,3 +208,15 @@
 10월 07, 2022 23:28:28.710 [3752:7996:1007/232828.710:ERROR:device_event_log_impl.cc(214)] [23:28:28.710] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 07, 2022 23:28:28.711 [3752:7996:1007/232828.710:ERROR:device_event_log_impl.cc(214)] [23:28:28.710] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 07, 2022 23:29:26.332 [3752:13076:1007/232926.332:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 10, 2022 14:52:35.303 NEW SESSION
+10월 10, 2022 14:52:35.303 [7720:920:1010/145235.301:ERROR:device_event_log_impl.cc(214)] [14:52:35.301] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 14:52:35.310 [7720:920:1010/145235.309:ERROR:device_event_log_impl.cc(214)] [14:52:35.309] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 14:52:35.310 [7720:920:1010/145235.309:ERROR:device_event_log_impl.cc(214)] [14:52:35.309] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 14:53:33.139 [7720:8668:1010/145333.138:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 10, 2022 16:58:19.92 NEW SESSION
+10월 10, 2022 16:58:19.92 [8784:1532:1010/165819.091:ERROR:device_event_log_impl.cc(214)] [16:58:19.091] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 16:58:19.100 [8784:1532:1010/165819.099:ERROR:device_event_log_impl.cc(214)] [16:58:19.099] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 16:58:19.100 [8784:1532:1010/165819.099:ERROR:device_event_log_impl.cc(214)] [16:58:19.100] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 10, 2022 16:59:17.03 [8784:9708:1010/165917.003:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
