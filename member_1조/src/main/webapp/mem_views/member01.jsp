@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>1조 기록</title>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-
-<img src="../images/member01.PNG" width="1024"/>
-<h1>MEMBER01 페이지 호출 결과</h1>
-<a href="../index.jsp">메인으로 돌아가기</a>
+<div style="text-align:center;">
+	<h1>면담</h1>
+	<img src="/member_1조/images/photo1.jpg" width=50% style="border-radius:20px; margin-bottom: 30px;">
+	<br>
+	<a href="/member_1조/index.jsp">홈으로</a>
+</div>
 
 <%@ include file="../footer.jsp" %>
 </body>

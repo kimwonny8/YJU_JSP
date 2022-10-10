@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
-	<div>
-	   <a href="/member_1조/mem_views/member01.jsp">GNB01</a> 
-	   <a href="/member_1조/mem_views/member02.jsp">GNB02</a> 
-	   <a href="/member_1조/mem_views/member03.jsp">GNB03</a> 
-	   <a href="/member_1조/mem_views/member04.jsp">GNB04</a> 
-	   <a href="/member_1조/mem_views/member05.jsp">GNB05</a> 
+	<div class="gnb">
+		<a href="https://com.yju.ac.kr/index.php?mid=page_OXGJ16">계열소개</a> <a
+			href="https://com.yju.ac.kr/index.php?mid=page_VrJT47">학과소개</a> <a
+			href="https://com.yju.ac.kr/index.php?mid=page_SVTR84">취업정보</a> <a
+			href="https://com.yju.ac.kr/index.php?mid=page_jtfK33">입시정보</a> <a
+			href="/member_1조/member_U&D_pwCheck.jsp">회원정보수정</a>
 	</div>
-		<img src="/member_1조/images/banner.png" width=100%/>
 </body>
 </html>

@@ -16,6 +16,7 @@ font-family: 'Noto Sans KR', sans-serif;
 width: 50%;
 margin: auto;
 }
+
 .menu{
 margin-top: 5vh;
 display:flex;

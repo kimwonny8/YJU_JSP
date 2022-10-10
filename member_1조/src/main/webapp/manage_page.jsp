@@ -24,7 +24,6 @@
 		display:flex;
 		flex-direction: column;
 		width:16vw;
-		margin-top: -2vh;
 		margin-right: 5vh;
 		}
 		
