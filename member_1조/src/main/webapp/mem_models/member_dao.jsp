@@ -190,8 +190,7 @@
 			mem_passwd = request.getParameter("mem_passwd");
 			
 			sql = "UPDATE member ";
-			sql += "SET mem_id = '" + request.getParameter("mem_id") + "' ";
-			sql += ", mem_passwd = '" + request.getParameter("mem_passwd") + "' ";
+			sql += "SET mem_passwd = '" + request.getParameter("mem_passwd") + "' ";
 			sql += ", mem_email = '" + request.getParameter("mem_email") + "' ";
 			sql += ", mem_phone = '" + request.getParameter("mem_phone") + "' ";
 			sql += "WHERE mem_num = " + Integer.parseInt(request.getParameter("mem_num"));
@@ -207,8 +206,8 @@
 				System.out.println("회원정보 수정 실패");
 				response.sendRedirect("../member_U&D.jsp");	
 			}
-			session.setAttribute("userid", mem_id); //세션 객체에 회원ID 갱신
 			break;
+		
 		
 		//테이블 레코드 삭제(회원탈퇴)
 		case "mem_D":

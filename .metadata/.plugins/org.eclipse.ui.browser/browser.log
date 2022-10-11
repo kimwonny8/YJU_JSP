@@ -251,3 +251,30 @@
 10월 10, 2022 23:18:00.138 [5924:12248:1010/231800.138:ERROR:device_event_log_impl.cc(214)] [23:18:00.139] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 10, 2022 23:18:00.139 [5924:12248:1010/231800.139:ERROR:device_event_log_impl.cc(214)] [23:18:00.139] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 10, 2022 23:18:57.782 [5924:14476:1010/231857.782:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 11, 2022 08:43:45.592 NEW SESSION
+10월 11, 2022 08:43:45.592 [6620:1452:1011/084345.590:ERROR:device_event_log_impl.cc(214)] [08:43:45.591] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 08:43:45.596 [6620:1452:1011/084345.596:ERROR:device_event_log_impl.cc(214)] [08:43:45.596] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 08:43:45.597 [6620:1452:1011/084345.596:ERROR:device_event_log_impl.cc(214)] [08:43:45.596] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 11, 2022 08:44:54.850 [6620:6180:1011/084454.850:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 11, 2022 08:45:00.51 [6620:11704:1011/084500.051:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -118
+10월 11, 2022 08:46:38.569 [6620:6344:1011/084638.568:ERROR:cert_verify_proc_builtin.cc(700)] CertVerifyProcBuiltin for e2c40.gcp.gvt2.com failed:
+10월 11, 2022 08:46:38.569 ----- Certificate i=0 (CN=*.gcp.gvt2.com) -----
+10월 11, 2022 08:46:38.570 ERROR: Time is after notAfter
+10월 11, 2022 08:46:38.570 
+10월 11, 2022 08:46:38.570 
+10월 11, 2022 08:46:38.572 [6620:5952:1011/084638.568:ERROR:cert_verify_proc_builtin.cc(700)] CertVerifyProcBuiltin for e2c18.gcp.gvt2.com failed:
+10월 11, 2022 08:46:38.573 ----- Certificate i=0 (CN=*.gcp.gvt2.com) -----
+10월 11, 2022 08:46:38.573 ERROR: Time is after notAfter
+10월 11, 2022 08:46:38.573 
+10월 11, 2022 08:46:38.574 
+10월 11, 2022 08:48:47.703 [6620:6344:1011/084847.702:ERROR:cert_verify_proc_builtin.cc(700)] CertVerifyProcBuiltin for e2c11.gcp.gvt2.com failed:
+10월 11, 2022 08:48:47.704 ----- Certificate i=0 (CN=*.gcp.gvt2.com) -----
+10월 11, 2022 08:48:47.704 ERROR: Time is after notAfter
+10월 11, 2022 08:48:47.704 
+10월 11, 2022 08:48:47.704 
+10월 11, 2022 09:22:30.845 [6620:5624:1011/092230.837:ERROR:cert_verify_proc_builtin.cc(700)] CertVerifyProcBuiltin for e2c53.gcp.gvt2.com failed:
+10월 11, 2022 09:22:30.845 ----- Certificate i=0 (CN=*.gcp.gvt2.com) -----
+10월 11, 2022 09:22:30.845 ERROR: Time is after notAfter
+10월 11, 2022 09:22:30.845 
+10월 11, 2022 09:22:30.845 
