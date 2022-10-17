@@ -44,27 +44,27 @@ width: 10vw;
 </head>
 <body>
 <%@ include file="./header.jsp" %>
+
 <%
  session.setAttribute("searchClass", "0");
  session.setAttribute("pageRange", "10");
  %>
-<div class="contents">
-
- <h1 style ="text-align:center">관리자 페이지</h1>
- <div class="menu">
- <button type="button" class="adjustBtn" onclick="location.href='/member_1조/manage_page.jsp?currentPageNo=0&pageRange=10&searchClass=0'">
-  <img class="menuIcon" src="https://cdn-icons-png.flaticon.com/512/456/456283.png">
-  <br> 
- <p>회원 관리</p>
- </button> 
  
- <button type="button" class="adjustBtn" onclick = "alert('준비 중인 기능입니다.')" />
-  <img class="menuIcon" src="https://cdn-icons-png.flaticon.com/512/1719/1719454.png">
-  <br> 
-  <p>게시물 관리</p>
- </button> 
-</div>
-
+<div class="contents">
+	 <h1 style ="text-align:center">관리자 페이지</h1>
+	 <div class="menu">
+		 <button type="button" class="adjustBtn" onclick="location.href='/member_1조/manage_page.jsp?currentPageNo=0&pageRange=10&searchClass=0'">
+			  <img class="menuIcon" src="https://cdn-icons-png.flaticon.com/512/456/456283.png">
+			  <br> 
+			 <p>회원 관리</p>
+		 </button> 
+		 
+	 	 <button type="button" class="adjustBtn" onclick = "alert('준비 중인 기능입니다.')">
+	  		<img class="menuIcon" src="https://cdn-icons-png.flaticon.com/512/1719/1719454.png">
+	  		<br> 
+	  		<p>게시물 관리</p>
+	 	</button> 
+	</div>
 </div>
 
 <%@ include file="./footer.jsp" %>

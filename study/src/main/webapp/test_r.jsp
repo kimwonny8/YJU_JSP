@@ -10,6 +10,7 @@
 <body>
 <h1>서적관리시스템 - 조회(R3)</h1>
 <%
+try{
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/test_db";
 	String user = "root";
@@ -20,7 +21,7 @@
 	Statement stmt = con.createStatement();
 	request.setCharacterEncoding("utf-8");
 
-	String sql2 = "select count(*) from books ";
+	String sql2= "select count(*) from books ";
 	ResultSet rs2=stmt.executeQuery(sql2);
 	
 	int recordCnt=0;
@@ -48,6 +49,7 @@
 	// limit 0, 10 => 0번 인덱스부터 10개를 가져옴
 	
 	ResultSet rs=stmt.executeQuery(sql);
+
 %>
 
 <hr>
@@ -138,9 +140,15 @@
 	[다음]
 <%	
 	}
+
 %>
 	<a href="./test_r.jsp?currentPageNo=<%=(pageCnt-1) %>&limitCnt=<%=limitCnt%>">[마지막]</a>
 <br>
+<%
+} catch(Exception e){
+	e.printStackTrace();
+}
+%>
 	<a href="./index.jsp">홈으로 돌아가기</a>
 </body>
 </html>

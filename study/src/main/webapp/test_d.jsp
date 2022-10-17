@@ -14,6 +14,7 @@
 <h1>서적관리시스템 - 삭제(D)</h1>
 <hr>
 <%
+try{
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/test_db";
 	String user = "root";
@@ -64,6 +65,9 @@
 		</tr>
 <%
 	}
+}catch(Exception e){
+	e.printStackTrace();
+}
 %>		
 	</tbody>
 	</table>

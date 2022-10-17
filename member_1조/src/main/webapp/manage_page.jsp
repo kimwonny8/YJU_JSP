@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <title>관리자 페이지 - 회원 관리</title>
-	<style>
+<style>
 		*{
 		font-family: 'Noto Sans KR', sans-serif;
 		}
@@ -99,59 +99,58 @@
 		border: 1px solid #D2D2D2;
 		color: black;
 		}		
-	</style>
+</style>
 
 </head>
 <body>
-	<%@ include file="./header.jsp"%>
-	
-	<div class="memberContents">
+<%@ include file="./header.jsp"%>	
+<div class="memberContents">
 	
 	<div class="memberMenuLeft">
 		<div class="menuStart">
-		<h2>관리자페이지</h2>
-		<p style="color: #657AB8;">YEUNGJIN UNIVERSITY</p>
+			<h2>관리자페이지</h2>
+			<p style="color: #657AB8;">YEUNGJIN UNIVERSITY</p>
 		</div>
 		<button style="font-weight: bold; background-color: #EAEDF5;"type="button" class="menuName" onclick="location.href='/member_1조/manage_page.jsp?currentPageNo=0&pageRange=10&searchClass=0'">회원관리</button>
-		<button type="button" class="menuName" onclick = "alert('준비 중인 기능입니다.')" />게시물관리</button>
+		<button type="button" class="menuName" onclick = "alert('준비 중인 기능입니다.')">게시물관리</button>
 	</div>
 	
 	<div class="memberAdjustRight">
-	<h1>회원관리</h1>
-	<hr>
-	<div class="lookType">
-	<form method = "post" action = "./manage_page.jsp" id = "combo">
-			<select name="pageRange" >
-				<option value="10" selected>10개씩 보기</option>
-				<option value="20">20개씩 보기</option>
-				<option value="50">50개씩 보기</option>
-				<option value="100">100개씩 보기</option>
-			</select>
-			<select name="searchClass">
-				<option value="0" selected>전체</option>
-				<option value="100">학생</option>
-				<option value="50">교수</option>
-				<option value="30">관리자</option>
-			</select> 
-			<input class="selectBtn" type="hidden" name="currentPageNo" value="0">
-			<input class="selectBtn" type="submit" value="확인">
-	</form>
-	</div>
+		<h1>회원관리</h1>
+		<hr>
+		<div class="lookType">
+		<form method = "post" action = "./manage_page.jsp" id = "combo">
+				<select name="pageRange" >
+					<option value="10" selected>10개씩 보기</option>
+					<option value="20">20개씩 보기</option>
+					<option value="50">50개씩 보기</option>
+					<option value="100">100개씩 보기</option>
+				</select>
+				<select name="searchClass">
+					<option value="0" selected>전체</option>
+					<option value="100">학생</option>
+					<option value="50">교수</option>
+					<option value="30">관리자</option>
+				</select> 
+				<input class="selectBtn" type="hidden" name="currentPageNo" value="0">
+				<input class="selectBtn" type="submit" value="확인">
+		</form>
+		</div>
 	
-	<table border="1" style="text-align: center" class="table">
-		<thead>
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">이름</th>
-				<th scope="col">아이디</th>
-				<th scope="col">이메일</th>
-				<th scope="col">휴대폰번호</th>
-				<th scope="col">주민등록번호</th>
-				<th scope="col">등급</th>
-				<th scope="col">관리</th>
-			</tr>
-		</thead>
-		<tbody>
+		<table border="1" style="text-align: center" class="table">
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+					<th scope="col">이름</th>
+					<th scope="col">아이디</th>
+					<th scope="col">이메일</th>
+					<th scope="col">휴대폰번호</th>
+					<th scope="col">주민등록번호</th>
+					<th scope="col">등급</th>
+					<th scope="col">관리</th>
+				</tr>
+			</thead>
+			<tbody>
 			
 	<%
 	String driverName = "org.mariadb.jdbc.Driver";
@@ -271,21 +270,22 @@
 		</tbody>
 	</table>
 	<div class="paging">
-	<input type="button" class="pageBtn" value="<First" onClick="gotoPage(0,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
-	<input type="button" class="pageBtn" value="Prev" onClick="gotoPage(<%=(currentPageNo -1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+		<input type="button" class="pageBtn" value="<First" onClick="gotoPage(0,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+		<input type="button" class="pageBtn" value="Prev" onClick="gotoPage(<%=(currentPageNo -1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
 	<%
-
-	for (int i = pageN; i < pageN + 10; i++) {
-
-		if (i == currentPageNo) {%> 
-			<input type="button" class="pageBtn selectNum" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
-		} else if (i < pageCnt) {%>
-			<input type="button" class="pageBtn" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
-		} 
-	}%>
 	
-	<input type="button" class="pageBtn" value="Next" onClick="gotoPage(<%=(currentPageNo +1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
-	<input type="button" class="pageBtn" value="End>" onClick="gotoPage(<%=(pageCnt - 1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+		for (int i = pageN; i < pageN + 10; i++) {
+	
+			if (i == currentPageNo) {%> 
+				<input type="button" class="pageBtn selectNum" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
+			} else if (i < pageCnt) {%>
+				<input type="button" class="pageBtn" value="<%=i+1%>" onClick="gotoPage(<%=i%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/><%;
+			} 
+		}
+	%>
+	
+		<input type="button" class="pageBtn" value="Next" onClick="gotoPage(<%=(currentPageNo +1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
+		<input type="button" class="pageBtn" value="End>" onClick="gotoPage(<%=(pageCnt - 1)%>,<%=pageRange%>,<%=searchClass%>,<%=pageCnt%>)"/>
 	</div>
 	
 	</div>

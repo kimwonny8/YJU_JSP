@@ -90,36 +90,31 @@
 
 			if (session.getAttribute("userclass").equals("30")) {
 		%>
-
-
 		<form name="logout" method="post"
 			action="/member_1조/mem_models/member_dao.jsp">
-			<%=session.getAttribute("userid")%>님 로그인 중 <input type="hidden"
-				name="actionType" value="LOGOUT"> <input type="submit"
-				value="로그아웃"> <a id="managebutton" href="/member_1조/manage_index_page.jsp">관리하기</a>
+			<%=session.getAttribute("userid")%>님 로그인 중 
+			<input type="hidden" name="actionType" value="LOGOUT"> 
+			<input type="submit" value="로그아웃"> 
+			<a id="managebutton" href="/member_1조/manage_index_page.jsp">관리하기</a>
 		</form>
-
-
 		<%
-		} else {
+			} else {
 		%>
-
-
-		<form name="logout" method="post"
-			action="/member_1조/mem_models/member_dao.jsp">
-			<%=session.getAttribute("userid")%>님 로그인 중 <input type="hidden"
-				name="actionType" value="LOGOUT"> <input type="submit"
-				value="로그아웃">
-		</form>
+			<form name="logout" method="post"
+				action="/member_1조/mem_models/member_dao.jsp">
+				<%=session.getAttribute("userid")%>님 로그인 중 
+				<input type="hidden" name="actionType" value="LOGOUT"> 
+				<input type="submit" value="로그아웃">
+			</form>
 		<%
-		}
+			}
 		} else {
 		%>
 
 		<div class="navbar">
 			<div class="loginText">
-				<a href="/member_1조/login_page.jsp">로그인</a> <a href="/member_1조/signup_page.jsp">회원
-					가입</a>
+				<a href="/member_1조/login_page.jsp">로그인</a> 
+				<a href="/member_1조/signup_page.jsp">회원가입</a>
 			</div>
 			<div class="snsLogo">
 				<img src="/member_1조/images/snslogo/sns_facebook.png" onClick="location.href='https://www.facebook.com/yjcomp/'"/>
@@ -133,7 +128,6 @@
 		<%
 		}
 		%>
-
 
 	</div>
 	<div class="menubar">

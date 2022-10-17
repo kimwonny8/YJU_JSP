@@ -14,6 +14,7 @@
 <h1>서적관리시스템 - 수정(U)</h1>
 <hr>
 <%
+try{
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/test_db";
 	String user = "root";
@@ -33,6 +34,7 @@
 	
 	String sql = "select * from books order by book_id";
 	ResultSet rs=stmt.executeQuery(sql);
+	
 %>
 	<table border="1">
 		<thead>
@@ -64,6 +66,9 @@
 		</tr>
 <%
 	}
+}catch(Exception e){
+	e.printStackTrace();
+}
 %>		
 	</tbody>
 	</table>
