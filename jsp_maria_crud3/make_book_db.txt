@@ -1,0 +1,64 @@
+drop database book_db;
+create database book_db;
+use book_db;
+
+create table books (
+book_id INT NOT NULL auto_increment,
+title varchar(50),
+publisher varchar(30),
+year varchar(10),
+price INT,
+primary key(book_id)
+);
+
+insert into books (book_id, title, publisher, year, price)
+values(1, '웹 프로그래밍', '영진출판사', '2003', 30246);
+
+insert into books (book_id, title, publisher, year, price)
+values(2, 'JAVA는 처음이지', '출판사', '2013', 12000);
+
+insert into books (book_id, title, publisher, year, price)
+values(3, 'JSP배우기', '인피니티북스', '1998', 15000);
+
+insert into books (book_id, title, publisher, year, price)
+values(4, 'JAVA의 정석', '영진출판사', '1997', 19000);
+
+insert into books (book_id, title, publisher, year, price)
+values(5, 'Vue.js', '길벗', '2000', 19000);
+
+insert into books (book_id, title, publisher, year, price)
+values(6, '혼공파', '한빛아카데미', '2007', 20000);
+
+insert into books (book_id, title, publisher, year, price)
+values(7, '빅테이터와 머신러닝', '인피니티북스', '2010', 19000);
+
+insert into books (book_id, title, publisher, year, price)
+values(8, 'SQLD기출', '출판컴퓨터', '2012', 19000);
+
+insert into books (book_id, title, publisher, year, price)
+values(9, '컴퓨터활용능력', '한빛아카데미', '2008', 20000);
+
+insert into books (book_id, title, publisher, year, price)
+values(10, '코틀린이 미래다', '영진출판사', '2022', 38000);
+
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 10, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 20, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 40, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 80, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 160, title, publisher, year, price + 1000
+from books; 
+

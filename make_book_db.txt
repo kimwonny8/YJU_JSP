@@ -42,3 +42,23 @@ insert into books (book_id, title, publisher, year, price)
 values(10, '코틀린이 미래다', '영진출판사', '2022', 38000);
 
 
+insert into books(book_id, title, publisher, year, price)
+select book_id + 10, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 20, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 40, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 80, title, publisher, year, price + 1000
+from books; 
+
+insert into books(book_id, title, publisher, year, price)
+select book_id + 160, title, publisher, year, price + 1000
+from books; 
+
