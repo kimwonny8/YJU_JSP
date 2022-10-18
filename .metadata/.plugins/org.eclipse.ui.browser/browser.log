@@ -278,3 +278,14 @@
 10월 11, 2022 09:22:30.845 ERROR: Time is after notAfter
 10월 11, 2022 09:22:30.845 
 10월 11, 2022 09:22:30.845 
+
+10월 18, 2022 08:56:12.71 NEW SESSION
+10월 18, 2022 08:56:12.71 [7696:12228:1018/085612.070:ERROR:device_event_log_impl.cc(214)] [08:56:12.069] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 18, 2022 08:56:12.76 [7696:12228:1018/085612.076:ERROR:device_event_log_impl.cc(214)] [08:56:12.075] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 18, 2022 08:56:12.76 [7696:12228:1018/085612.076:ERROR:device_event_log_impl.cc(214)] [08:56:12.075] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 18, 2022 08:57:09.768 [7696:7380:1018/085709.768:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 18, 2022 08:57:13.96 [7696:12128:1018/085713.096:ERROR:cert_verify_proc_builtin.cc(670)] CertVerifyProcBuiltin for e2c41.gcp.gvt2.com failed:
+10월 18, 2022 08:57:13.97 ----- Certificate i=0 (CN=*.gcp.gvt2.com) -----
+10월 18, 2022 08:57:13.97 ERROR: Time is after notAfter
+10월 18, 2022 08:57:13.97 
+10월 18, 2022 08:57:13.97 

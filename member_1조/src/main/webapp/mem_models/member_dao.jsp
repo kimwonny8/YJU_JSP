@@ -63,18 +63,18 @@
 			System.out.print(userID + " " + userPW);
 
 			if (rs.next()) {
-		String userID_DUMMY = rs.getString("mem_id");
-		String userPW_DUMMY = rs.getString("mem_passwd");
-		String userclass = rs.getString("mem_class");
+				String userID_DUMMY = rs.getString("mem_id");
+				String userPW_DUMMY = rs.getString("mem_passwd");
+				String userclass = rs.getString("mem_class");
 
-		if (userID.equals(userID_DUMMY)) {
-			if (userPW.equals(userPW_DUMMY)) {
-				session.setAttribute("loginState", "login");
-				session.setAttribute("userid", userID);
-				session.setAttribute("userpw", userPW);
-				session.setAttribute("userclass", userclass);
-				response.sendRedirect("../index.jsp");
-			}
+			if (userID.equals(userID_DUMMY)) {
+				if (userPW.equals(userPW_DUMMY)) {
+					session.setAttribute("loginState", "login");
+					session.setAttribute("userid", userID);
+					session.setAttribute("userpw", userPW);
+					session.setAttribute("userclass", userclass);
+					response.sendRedirect("../index.jsp");
+				}
 		}
 			}
 	%>
