@@ -22,7 +22,7 @@
 			<option value=100>100</option>
 		</select> 
 		
-		<input type="text" name="searchDate" placeholder="ex)9/1">
+		<input type="date" name="searchDate" value="">
 		<select name="searchFever">
 			<option disabled value="">발열현상 유무별 보기</option>
 			<option value="O">O</option>
@@ -47,7 +47,7 @@
 		<tbody>
 
 	<%
-	String driverName = "org.mariadb.jdbc.Driver";
+		String driverName = "org.mariadb.jdbc.Driver";
 		String url = "jdbc:mariadb://localhost/covid_db_kjw59";
 		String user = "root";
 		String passwd = "root";

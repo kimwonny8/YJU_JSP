@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>2101059 김정원</h1>
+<h1>2101059 김정원 kjw59</h1>
 <h2>출입자 명부 - 삭제</h2>
 <p>테이블 착석하실 경우 꼭 작성해주셔야합니다.</p>
 <p>작성 전 손소독을 꼭 해주시고, 작성 후 신분증 제시 부탁드립니다.</p>
@@ -39,7 +39,7 @@
 
 %>
 
-<form method="post" actoion="covid_dao_kjw59.jsp">
+<form method="post" action="./covid_dao_kjw59.jsp">
 	<input type="hidden" name="actionType" value="D2"> 
 	<button type="submit">4주 이상 경과된 데이터 삭제</button>
 </form>
@@ -70,9 +70,9 @@
 	
 %>
 		<tr>
-			<td ><%= id %></td>
-			<td ><%= date %></td>
-			<td ><%= time %></td>
+			<td><%= id %></td>
+			<td><%= date %></td>
+			<td><%= time %></td>
 			<td><%= name %></td>
 			<td><%= phone %></td>
 			<td><%= agree %></td>

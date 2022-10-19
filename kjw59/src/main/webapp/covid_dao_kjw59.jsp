@@ -71,30 +71,33 @@
 			sql = "delete from people_kjw59 where id="+id;
 		
 			System.out.println(sql);
-			
 			result = stmt.executeUpdate(sql);
 			
 			if(result==1){
-				response.sendRedirect("./index_kjw59.jsp");
+				msg+="삭제 완료";
 			}
 			else {
-				response.sendRedirect("./index_kjw59.jsp");
+				msg+="삭제 실패";
 			}
 			break;
 			
-/* 		case "D2":
-			sql="select date from people_kjw59";
+		case "D2":
+			sql="select * from people_kjw59";
 			ResultSet rs2 = stmt.executeQuery(sql);
 			
-			Calendar cal = Calendar.getInstance();
-			String today = cal.get(Calendar.MONTH)+"/"+cal.get(Calendar.DATE);
-			
-			while(rs2.next()){
-				date=rs2.getString("date");
-				char [] arr=date.toCharArray();+date-4
-				sql="delete from people_kjw59 WHERE date =";
-			} */
-			
+			if(!rs2.next()) msg="4주 이상 경과된 데이터 삭제 실패"; 
+				else {
+					while(rs2.next()){
+						date = rs2.getString("date");
+						sql="delete from people_kjw59 WHERE date < NOW() - INTERVAL 4 week";
+						result = stmt.executeUpdate(sql);
+						if(result==1) {
+							msg="4주 이상 경과된 데이터 삭제 완료";
+						}
+				} 
+			}
+
+			break;
 		
 		case "U":
 			id= Integer.parseInt(request.getParameter("id"));
