@@ -15,8 +15,8 @@
 		session.setAttribute("mem_phone", null);
 		session.setAttribute("currentPageNo", 0);
 		session.setAttribute("limitCnt", 10);
-		session.setAttribute("searchDate", "전체");
-		session.setAttribute("searchFever", "전체");
+		session.setAttribute("searchDate", "All");
+		session.setAttribute("searchFever", "All");
 	}
 %>
 

@@ -13,6 +13,12 @@ int limitCnt = ((Integer)session.getAttribute("limitCnt")).intValue();
 int currentPageNo = ((Integer)session.getAttribute("currentPageNo")).intValue();
 String searchDate=(String)session.getAttribute("searchDate");
 String searchFever=(String)session.getAttribute("searchFever");
+if(searchDate.equals("null")){
+	searchDate="전체";
+}
+if(searchFever.equals("null")){
+	searchFever="전체";
+}
 
 %>
 	<h1>2101059 김정원 kjw59</h1>
@@ -88,11 +94,6 @@ String searchFever=(String)session.getAttribute("searchFever");
 		String sql = "select * from people_kjw59 order by name limit ";
 		sql += startRecord + "," + limitCnt;
 		ResultSet rs = stmt.executeQuery(sql);
-	
-		session.setAttribute("searchDate",request.getParameter("searchDate"));
-		session.setAttribute("searchFever",request.getParameter("searchFever"));
-		searchDate=(String)session.getAttribute("searchDate");
-		searchFever=(String)session.getAttribute("searchFever");
 
 /* 		if(searchDate.equals("0")) { 
 			sql = "select * from people_kjw59 order by name limit ?, ? ";
