@@ -13,10 +13,9 @@
 		session.setAttribute("mem_id", null);
 		session.setAttribute("mem_name", null);
 		session.setAttribute("mem_phone", null);
-		session.setAttribute("currentPageNo", 0);
 		session.setAttribute("limitCnt", 10);
-		session.setAttribute("searchDate", "All");
-		session.setAttribute("searchFever", "All");
+		session.setAttribute("searchDate", null);
+		session.setAttribute("searchFever", null);
 	}
 %>
 
@@ -48,7 +47,7 @@ else {
 
 <br>
 <li><a href="./covid_c_kjw59.jsp">등록(C)</a></li>
-<li><a href="./covid_r_kjw59.jsp">조회</a></li>
+<li><a href="./covid_r_kjw59.jsp?currentPageNo=0">조회</a></li>
 <li><a href="./covid_u_kjw59.jsp">수정(U)</a></li>
 <li><a href="./covid_d_kjw59.jsp">삭제(D)</a></li>
 <li><a href="./signUp_kjw59.jsp">회원가입</a></li>

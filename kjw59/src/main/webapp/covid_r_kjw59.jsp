@@ -9,15 +9,29 @@
 </head>
 <body>
 <%
-int limitCnt = ((Integer)session.getAttribute("limitCnt")).intValue();
-int currentPageNo = ((Integer)session.getAttribute("currentPageNo")).intValue();
-String searchDate=(String)session.getAttribute("searchDate");
-String searchFever=(String)session.getAttribute("searchFever");
-if(searchDate.equals("null")){
-	searchDate="전체";
+String actionType=request.getParameter("actionType");
+String searchFever=request.getParameter("searchFever");
+String searchDate=request.getParameter("searchDate");
+int currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
+
+int limitCnt=10;
+String tempLimitCnt= request.getParameter("limitCnt"); // 일단 스트링으로 받고 
+if (tempLimitCnt != null && !tempLimitCnt.trim().equals("")){// Null 체크 하고 
+	try{ 
+		limitCnt = Integer.parseInt(tempLimitCnt); // int 로 변환 
+	}
+	catch (NumberFormatException ex) { 
+		limitCnt = 10; 
+	}
 }
-if(searchFever.equals("null")){
-	searchFever="전체";
+
+if(searchFever==null) searchFever="all";
+if(searchDate==null || searchDate.equals(""))  searchDate="all";
+
+if(actionType!=null && actionType.equals("search")){
+	session.setAttribute("limitCnt",limitCnt);
+	session.setAttribute("searchDate",searchDate);
+	session.setAttribute("searchFever",searchFever);	
 }
 
 %>
@@ -34,17 +48,20 @@ if(searchFever.equals("null")){
 			<option value=100>100</option>
 		</select> 
 		
-		<br>날짜별 검색: <input type="date" name="searchDate" id="date" value="전체">
+		<br>날짜별 검색: <input type="date" name="searchDate" id="date" value="all">
 		<br>발열현상 유무별 보기: <select name="searchFever">
-			<option value="전체" selected>전체</option>
+			<option value="all" selected>전체</option>
 			<option value="O">O</option>
 			<option value="X">X</option>
-		</select> <input type="hidden" name="currentPageNo" value="0">
+		</select> 	
+		<input type="hidden" name="actionType" value="search">
+		<input type="hidden" name="limitCnt" value="10">
+		<input type="hidden" name="currentPageNo" value="<%=currentPageNo%>">
 		<input type="submit" value="확인">
 	</form>
 	<hr>
 	
-	<table border="1">
+	<table border="1" style="text-align:center;">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -70,7 +87,7 @@ if(searchFever.equals("null")){
 		PreparedStatement pstmt = null;
 		request.setCharacterEncoding("utf-8");
 		
-		String sql2 = "select count(*) from people_kjw59 ";
+		String sql2 = "select count(*) from people_kjw59";
 		ResultSet rs2 = stmt.executeQuery(sql2);
 		
 		int recordCnt = 0;
@@ -91,22 +108,38 @@ if(searchFever.equals("null")){
 		String agree;
 		String fever;
 
-		String sql = "select * from people_kjw59 order by name limit ";
-		sql += startRecord + "," + limitCnt;
-		ResultSet rs = stmt.executeQuery(sql);
-
-/* 		if(searchDate.equals("0")) { 
-			sql = "select * from people_kjw59 order by name limit ?, ? ";
+		String sql;
+		if(!searchDate.equals("all") && !searchFever.equals("all")){
+			sql = "select * from people_kjw59 where date=? and fever=? order by id limit ?, ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startRecord);
-			pstmt.setInt(2, limitCnt);
-		} else {
-			sql = "select * from people_kjw59 where date = ? order by name limit ?, ? ";
+			pstmt.setString(1, searchDate);
+			pstmt.setString(2, searchFever);
+			pstmt.setInt(3, startRecord);
+			pstmt.setInt(4, limitCnt);	
+		}
+		else if(searchDate.equals("all") && !searchFever.equals("all")) {
+			sql = "select * from people_kjw59 where fever=? order by id limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, searchFever);
+			pstmt.setInt(2, startRecord);
+			pstmt.setInt(3, limitCnt);	
+		}
+		else if(!searchDate.equals("all") && searchFever.equals("all")){
+			sql = "select * from people_kjw59 where date=? order by id limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, searchDate);
 			pstmt.setInt(2, startRecord);
-			pstmt.setInt(3, limitCnt);
-		} */
+			pstmt.setInt(3, limitCnt);	
+		}
+ 		else {
+			sql = "select * from people_kjw59 order by id limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startRecord);
+			pstmt.setInt(2, limitCnt);	
+		}
+		 
+		ResultSet rs = pstmt.executeQuery();
+		
 	%>
 	<p>[ 현재 <%=limitCnt %>개씩 보기, 날짜: <%=searchDate %>, 발열현상 유무: <%=searchFever%> ] 검색 중입니다.</p>
 	<%
@@ -135,9 +168,9 @@ if(searchFever.equals("null")){
 	</table>
 	<br>
 	
-	<a href="./covid_r_kjw59.jsp">[처음]</a>
+	<a href="./covid_r_kjw59.jsp?currentPageNo=0">[처음]</a>
 <% 	if (currentPageNo > 0) { %>
-		<a href="./covid_r_kjw59.jsp">[이전]</a>
+		<a href="./covid_r_kjw59.jsp?currentPageNo=<%=(currentPageNo-1)%>">[이전]</a>
 <%	} else { %> [이전] <% }
 
 	int pageNo = currentPageNo / 10; // 0부터 시작
@@ -147,14 +180,19 @@ if(searchFever.equals("null")){
 			%> [<%=(i + 1)%>] <%
 		} 
 		else { %> 
-			<a href="./covid_r_kjw59.jsp">[<%=(i + 1)%>]</a> 
-		<% }
+			<% 	if (currentPageNo > 0) { %>
+				<a href="./covid_r_kjw59.jsp?currentPageNo=<%=(currentPageNo-1)%>">[<%=(i + 1)%>]</a>
+			<%	} else { %>
+				<a href="./covid_r_kjw59.jsp?currentPageNo=<%=(currentPageNo+1)%>">[<%=(i + 1)%>]</a> 
+			<% }
+		}
 	}
 	if (currentPageNo < pageCnt - 1) { %>
-		<a href="./covid_r_kjw59.jsp">[다음]</a> 
+		<a href="./covid_r_kjw59.jsp?currentPageNo=<%=(currentPageNo+1)%>">[다음]</a> 
 	<% }
-	else { %> [다음] <% } %> 	
-	<a	href="./covid_r_kjw59.jsp">[마지막]</a>
+	else { %> [다음] <% 
+	} %> 	
+	<a	href="./covid_r_kjw59.jsp?currentPageNo=<%=(pageCnt-1)%>">[마지막]</a>
 	<br>
 	
 	<a href="./index_kjw59.jsp">홈으로 돌아가기</a>

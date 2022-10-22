@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>2101059 김정원</h1>
+<h1>2101059 김정원 kjw59</h1>
 <h2>출입자 명부 - 수정</h2>
 <%
 int id= Integer.parseInt(request.getParameter("id"));
