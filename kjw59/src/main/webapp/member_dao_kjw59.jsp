@@ -53,48 +53,38 @@
 	case "LOGIN" :
 		mem_id = request.getParameter("mem_id");
 		mem_passwd = request.getParameter("mem_passwd");
-		
+	
 		sql = "select * from member where mem_id=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, mem_id);
 		rs = pstmt.executeQuery();
-		
 		if(rs.next()) {
 			String mem_passwd2 = rs.getString("mem_passwd");
 			mem_phone = rs.getString("mem_phone");
-			mem_name = rs.getString("mem_name");
-			
+			mem_name = rs.getString("mem_name");	
 			if(mem_passwd2.equals(mem_passwd)){
 				session.setAttribute("loginState", "logout");
 				session.setAttribute("loginState", "login");
 				session.setAttribute("mem_id", mem_id);
 				session.setAttribute("mem_name", mem_name);
-				session.setAttribute("mem_phone", mem_phone);	
-				%>
+				session.setAttribute("mem_phone", mem_phone);	%>
 				<script type="text/javascript">
 					alert("로그인 성공!");
 					location.href = "/kjw59/index_kjw59.jsp";
-				</script>
-				
-				<%
+				</script><%
 			}
-			else {
-				%>
+			else {	%>
 				<script type="text/javascript">
 					alert("비밀번호를 확인해주세요!");
 					history.back();
 				</script>
-				<% 
-			}
-		}
-		else {
-			%>
+				<% 	}
+		}else {	%>
 			<script type="text/javascript">
 				alert("존재하지 않는 아이디입니다.");
 				history.back();
 			</script>
-			<% 
-		}
+			<% }
 		break;
 
 	case "LOGOUT" :
@@ -111,8 +101,5 @@
 		break;
 	}
 	%>
-
-	<%-- <jsp:forward page="../index.jsp"/> --%>
-
 </body>
 </html>

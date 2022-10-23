@@ -26,8 +26,8 @@ String fever = request.getParameter("fever");
 <form method="post" action="./covid_dao_kjw59.jsp">
 	<div>
 		번호(수정불가) : <input type="text" name="id" value="<%=id%>" readonly>
-		<br>날짜 : <input type="text" name="date" value="<%=date%>" >
-		<br> 방문시각 : <input type="text" name="time" value="<%=time %>">
+		<br>날짜 : <input type="date" name="date" value="<%=date%>" >
+		<br> 방문시각 : <input type="time" name="time" value="<%=time %>">
 		<br> 성명 : <input type="text" name="name" value="<%=name %>" size="30">
 		<br> 휴대폰번호 : <input type="text" name="phone" value="<%=phone %>" size="20">
 		<br> 개인정보 수집,제공 동의 

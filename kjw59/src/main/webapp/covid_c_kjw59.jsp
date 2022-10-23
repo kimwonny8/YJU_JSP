@@ -38,21 +38,14 @@ if(session.getAttribute("loginState")=="login"){
 		<br> 개인정보 수집,제공 동의 
 		<input type="radio" name="agree" value="O">O
 		<input type="radio" name="agree" value="X">X
-		
 		<br> 발열현상 유무
 		<input type="radio" name="fever" value="O">O
 		<input type="radio" name="fever" value="X">X
-		
 		<div>
 		<input type="hidden" name="actionType" value="C">
 		<br><input type="submit" value="등록">
-	
 		</div>
 	</div>
-
 </form>
-<!-- <script>
-document.getElementById('date').valueAsDate = new Date();
-</script> -->
 </body>
 </html>

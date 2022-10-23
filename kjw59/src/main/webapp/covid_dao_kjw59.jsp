@@ -15,7 +15,6 @@
 
 <hr>
 <%
-
 	String driverName = "org.mariadb.jdbc.Driver";
 	String url = "jdbc:mariadb://localhost/covid_db_kjw59";
 	String user = "root";
@@ -68,33 +67,45 @@
 		
 		case "D":
 			id= Integer.parseInt(request.getParameter("id"));
-			sql = "delete from people_kjw59 where id="+id;
-		
-			System.out.println(sql);
+			sql = "delete from people_kjw59 where id="+id;		
 			result = stmt.executeUpdate(sql);
 			
 			if(result==1){
-				msg+="삭제 완료";
+				%>
+				<script>
+					alert("삭제 완료!");
+					location.href = "/kjw59/index_kjw59.jsp";
+				</script>
+				<%
 			}
 			else {
-				msg+="삭제 실패";
+				%>
+				<script>
+					alert("삭제 실패");
+					location.href = "/kjw59/covid_d_kjw59.jsp";
+				</script>
+				<%
 			}
 			break;
 			
 		case "D2":
-			sql="select * from people_kjw59";
-			ResultSet rs2 = stmt.executeQuery(sql);
-			
-			if(!rs2.next()) msg="4주 이상 경과된 데이터 삭제 실패"; 
-				else {
-					while(rs2.next()){
-						date = rs2.getString("date");
-						sql="delete from people_kjw59 WHERE date < NOW() - INTERVAL 4 week";
-						result = stmt.executeUpdate(sql);
-						if(result==1) {
-							msg="4주 이상 경과된 데이터 삭제 완료";
-						}
-				} 
+			sql="delete from people_kjw59 WHERE date < NOW() - INTERVAL 4 week";
+			result = stmt.executeUpdate(sql);
+			if(result==1) {
+				%>
+				<script>
+					alert("삭제 완료!");
+					location.href = "/kjw59/index_kjw59.jsp";
+				</script>
+				<%
+			}
+			else {
+				%>
+				<script>
+					alert("삭제할 데이터가 없습니다.");
+					location.href = "/kjw59/covid_d_kjw59.jsp";
+				</script>
+				<%
 			}
 
 			break;
