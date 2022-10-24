@@ -14,7 +14,7 @@ String searchFever=request.getParameter("searchFever");
 String searchDate=request.getParameter("searchDate");
 int currentPageNo = Integer.parseInt(request.getParameter("currentPageNo"));
 
-int limitCnt=10;
+int limitCnt=((Integer)session.getAttribute("limitCnt")).intValue();
 String tempLimitCnt= request.getParameter("limitCnt"); // 일단 스트링으로 받고 
 if (tempLimitCnt != null && !tempLimitCnt.trim().equals("")){// Null 체크 하고 
 	try{ 
@@ -174,8 +174,11 @@ if(actionType!=null && actionType.equals("search")){
 <%	} else { %> [이전] <% }
 
 	int pageNo = currentPageNo / 10; // 0부터 시작
-	for (int i = pageNo * 10; i < (pageNo + 1) * 10; i++) {
+	int end=(pageNo + 1) * 10 ;
+	if(end> pageCnt){ end=pageCnt; }
+	for (int i = pageNo * 10; i < end; i++) {
 		if (i > pageCnt - 1) break;
+		
 		if (i == currentPageNo) { 
 			%> [<%=(i + 1)%>] <%
 		} 
