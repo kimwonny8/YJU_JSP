@@ -13,8 +13,8 @@
 파일을 WEB-INF/lib 폴더로 복사</h3>
 
 <hr>
-<p><a href="fileUploadForm.jsp">파일 업로드하기</a></p>
-<p><a href="fileDownload.jsp">파일 다운로드 하기</a></p>
+<p><a href="/fileUploadProj02/fileUploadForm.jsp">파일 업로드하기</a></p>
+<p><a href="/fileUploadProj02/fileDownload.jsp">파일 다운로드 하기</a></p>
 <hr>
 
 </body>

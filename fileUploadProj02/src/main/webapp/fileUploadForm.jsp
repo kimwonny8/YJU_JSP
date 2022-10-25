@@ -12,7 +12,7 @@
 <hr>
 
 <p>
-<form action="fileUpload.jsp" method="post" enctype="multipart/form-data">
+<form action="/fileUploadProj02/fileUpload.jsp" method="post" enctype="multipart/form-data">
 <p>작성자 : <input type="text" name ="userName"></p>
 <p>파일명 : <input type="file" name ="file01"></p>
 <p><input type = "submit" value ="upload"></p>

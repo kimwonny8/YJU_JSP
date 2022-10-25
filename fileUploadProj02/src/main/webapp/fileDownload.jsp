@@ -36,6 +36,7 @@
 	
 	String imageDir = "/fileUploadProj02/image/";
 	String thumbImageDir = imageDir + "thumb/";
+	String thumbImageDir2 = "D:\\Dev\\fileUploadProj02\\src\\main\\webapp\\image\\thumb\\";
 	
 	int result;
 	int i_id;
@@ -61,7 +62,11 @@
 	      i_original_name = rs.getString("i_original_name");
 	      i_thumbnail_name = rs.getString("i_thumbnail_name");
 	      i_file_type = rs.getString("i_file_type");
-	      i_file_size = rs.getLong("i_file_size"); 
+	      i_file_size = rs.getLong("i_file_size");
+	      
+	      String thumbsnail=thumbImageDir+"sm_"+i_original_name;
+	      System.out.println(thumbsnail);
+
 %>
 	   <tr>
 	      <td><%=i_id %></td>
@@ -70,8 +75,8 @@
 	      <td><%=i_thumbnail_name %></td>
 	      <td><%=i_file_type %></td>
 	      <td><%=i_file_size %></td>
-	      <td><img src="<%=imageDir%><%=i_file_name%>" width="150"/></td>
-	      <td><%=i_thumbnail_name %></td>
+	      <td><img src="<%=imageDir%><%=i_original_name%>" width="150"/></td>
+	      <td><img src="<%=thumbsnail%>" width="100"></td>
 	      <td><a href="<%=imageDir %><%=i_original_name %>" download>다운받기</a></td>
 	   </tr>
 <% 
@@ -89,7 +94,7 @@
 	}
 %>
 
-<p><br><a href="index.jsp">홈으로 돌아가기</a>
+<p><br><a href="/fileUploadProj02/index.jsp">홈으로 돌아가기</a>
 
 </body>
 </html>

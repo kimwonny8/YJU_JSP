@@ -382,3 +382,27 @@
 10월 22, 2022 15:23:39.625 [12176:12820:1022/152339.625:ERROR:device_event_log_impl.cc(214)] [15:23:39.625] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 22, 2022 15:23:39.625 [12176:12820:1022/152339.625:ERROR:device_event_log_impl.cc(214)] [15:23:39.625] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 10월 22, 2022 15:24:37.530 [12176:12648:1022/152437.529:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 25, 2022 17:40:38.68 NEW SESSION
+10월 25, 2022 17:40:38.68 [3192:8460:1025/174038.066:ERROR:device_event_log_impl.cc(214)] [17:40:38.067] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:40:38.72 [3192:8460:1025/174038.072:ERROR:device_event_log_impl.cc(214)] [17:40:38.072] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:40:38.72 [3192:8460:1025/174038.072:ERROR:device_event_log_impl.cc(214)] [17:40:38.072] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:42:34.153 [3272:4064:1025/174234.152:ERROR:device_event_log_impl.cc(214)] [17:42:34.152] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:42:34.159 [3272:4064:1025/174234.159:ERROR:device_event_log_impl.cc(214)] [17:42:34.158] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:42:34.159 [3272:4064:1025/174234.159:ERROR:device_event_log_impl.cc(214)] [17:42:34.158] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:43:31.912 [3272:15104:1025/174331.912:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 25, 2022 17:44:59.847 [12320:14836:1025/174459.847:ERROR:device_event_log_impl.cc(214)] [17:44:59.846] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:44:59.854 [12320:14836:1025/174459.854:ERROR:device_event_log_impl.cc(214)] [17:44:59.853] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:44:59.854 [12320:14836:1025/174459.854:ERROR:device_event_log_impl.cc(214)] [17:44:59.853] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 25, 2022 17:45:57.735 [12320:15648:1025/174557.734:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+10월 26, 2022 24:04:36.492 NEW SESSION
+10월 26, 2022 24:04:36.492 [16580:2952:1026/000436.488:ERROR:device_event_log_impl.cc(214)] [00:04:36.488] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 26, 2022 24:04:36.494 [16580:2952:1026/000436.494:ERROR:device_event_log_impl.cc(214)] [00:04:36.494] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 26, 2022 24:04:36.494 [16580:2952:1026/000436.494:ERROR:device_event_log_impl.cc(214)] [00:04:36.494] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 26, 2022 24:05:33.973 [16580:16712:1026/000533.964:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+10월 26, 2022 24:31:52.518 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+10월 26, 2022 24:32:15.750 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+10월 26, 2022 24:32:57.890 [11464:10256:1026/003257.889:ERROR:device_event_log_impl.cc(214)] [00:32:57.889] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 26, 2022 24:32:57.896 [11464:10256:1026/003257.896:ERROR:device_event_log_impl.cc(214)] [00:32:57.895] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+10월 26, 2022 24:32:57.897 [11464:10256:1026/003257.896:ERROR:device_event_log_impl.cc(214)] [00:32:57.895] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
