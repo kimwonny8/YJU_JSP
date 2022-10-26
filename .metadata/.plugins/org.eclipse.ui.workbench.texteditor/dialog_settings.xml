@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="thumbFileName"/>
+		<item key="selection" value=" "/>
 		<list key="findhistory">
+			<item value="Integer.parseInt("/>
+			<item value="request.getParameter"/>
 			<item value="saveFile"/>
 			<item value="loadFile"/>
 			<item value="originalFileName"/>
@@ -21,10 +23,10 @@
 			<item value="response.sendRedirect(&quot;../index.jsp&quot;);"/>
 			<item value="test_r"/>
 			<item value="rs2"/>
-			<item value="book"/>
-			<item value="checkEmail"/>
 		</list>
 		<list key="replacehistory">
+			<item value=" "/>
+			<item value="rs.getString"/>
 			<item value="thumbFileName"/>
 			<item value="orgFileName"/>
 			<item value="tempLimitCnt"/>
@@ -36,10 +38,8 @@
 			<item value="test"/>
 			<item value="selectNum"/>
 			<item value="selectBtn"/>
-			<item value=" "/>
 			<item value="member_1조"/>
 			<item value="member_01"/>
-			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
