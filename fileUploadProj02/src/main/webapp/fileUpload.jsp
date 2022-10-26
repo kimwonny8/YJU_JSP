@@ -4,9 +4,10 @@
 	import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"
 	import="com.oreilly.servlet.MultipartRequest" import="java.sql.*"
 	import="java.io.*" import="java.nio.file.*"
-	import="java.awt.Graphics2D"
-	import="java.awt.image.BufferedImage" import="javax.imageio.ImageIO"
-	import="javax.media.jai.JAI" import="javax.media.jai.RenderedOp"%>
+	import="java.awt.Graphics2D" import="java.awt.image.BufferedImage"
+	import="javax.imageio.ImageIO" import="javax.media.jai.JAI"
+	import="javax.media.jai.RenderedOp"%>
+<%@page import="java.awt.Image"%>
 
 <!DOCTYPE html>
 <html>
@@ -44,7 +45,10 @@
 		originalFileName = multi.getOriginalFileName(element);
 		contentType = multi.getContentType(element);
 		length = multi.getFile(element).length();
+	}
 
+	/*
+	try{
 		String orgFileName = imgDirPath + originalFileName;
 		String thumbFileName = thumbImageDir + "sm_" + originalFileName;
 		int zoom = 5;
@@ -65,13 +69,37 @@
 		g2.drawImage(im, 0, 0, width, height, null); //메모리의 이미지공간에 원본 이미지를 가로 width, 세로 height 크기로 그린다.
 
 		ImageIO.write(thumb, "png", save); //메모리에 그린이미지를 파일로 저장 
+	} catch(Exception e){
+		e.printStackTrace();
 	}
-
-	/* System.out.println(originalFileName);
-	File file=new File(imgDirPath+originalFileName);
-	File thumbFile=new File(thumbImageDir+"sm_"+originalFileName);
-	Files.copy(file.toPath(), thumbFile.toPath(), StandardCopyOption.REPLACE_EXISTING); 
 	*/
+
+	String oPath = imgDirPath + originalFileName; // 원본 경로
+	File oFile = new File(oPath);
+
+	int index = oPath.lastIndexOf(".");
+	String ext = oPath.substring(index + 1); // 파일 확장자
+
+	String tPath = thumbImageDir + "sm_" + originalFileName; // 썸네일저장 경로
+	File tFile = new File(tPath);
+
+	double ratio = 2; // 이미지 축소 비율
+
+	try {
+		BufferedImage oImage = ImageIO.read(oFile); // 원본이미지
+		int tWidth = (int) (oImage.getWidth() / ratio); // 생성할 썸네일이미지의 너비
+		int tHeight = (int) (oImage.getHeight() / ratio); // 생성할 썸네일이미지의 높이
+
+		BufferedImage tImage = new BufferedImage(tWidth, tHeight, BufferedImage.TYPE_3BYTE_BGR); // 썸네일이미지
+		Graphics2D graphic = tImage.createGraphics();
+		Image image = oImage.getScaledInstance(tWidth, tHeight, Image.SCALE_SMOOTH);
+		graphic.drawImage(image, 0, 0, tWidth, tHeight, null);
+		graphic.dispose(); // 리소스를 모두 해제
+
+		ImageIO.write(tImage, ext, tFile);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
 	%>
 	<p>
 		입력한 사용자 이름:
@@ -130,8 +158,7 @@
 	}
 	%>
 	<p>
-		<br>
-		<a href="/fileUploadProj02/index.jsp">홈으로 돌아가기</a>
+		<br> <a href="/fileUploadProj02/index.jsp">홈으로 돌아가기</a>
 	</p>
 
 </body>
