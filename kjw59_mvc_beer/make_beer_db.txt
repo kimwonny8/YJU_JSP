@@ -1,0 +1,50 @@
+use kjw59_mall_db;
+
+create table beer(
+b_id int primary key auto_increment,
+b_code varchar(30) not null,
+b_category varchar(30) not null,
+b_name varchar(30) not null,
+b_country varchar(30),
+b_price int,
+b_alcohol varchar(30),
+b_content varchar(200),
+b_like int default 0,
+b_dislike int default 0,
+b_image varchar(30) default 'baseImage.jpg'
+);
+
+insert into beer values(1, 'BE010010001','에일','예거 라들러', '오스트리아', 3300, '2.5%', '레몬,복숭아,자몽,청포도 맛', 0, 0, 'baseImage.jpg');
+
+insert into beer values(2, 'BE010020001','에일','곰표 밀맥주', '한국', 3500, '4.5%', '밀맥주의 정석', 0, 0, 'baseImage.jpg');
+
+insert into beer values(3, 'BE020030001','라거','스텔라 아르투아', '벨기에', 3000, '5%', '묵직한 쓴 맛의 라거 맥주', 0, 0, 'baseImage.jpg');
+
+insert into beer values(4, 'BE020040001','라거','버드 와이저', '미국', 3300, '5%', '라거의 정석', 0, 0, 'baseImage.jpg');
+
+insert into beer values(5, 'BE020020002','라거','클라우드 생 드래프트', '한국', 2500, '4.5%', '생맥주맛', 0, 0, 'baseImage.jpg');
+
+insert into beer values(6, 'BE010050001','에일','블랑 1664', '프랑스', 3200, '5%', '향긋한 향이 특징', 0, 0, 'baseImage.jpg');
+
+insert into beer values(7, 'BE020060001','라거','칭따오', '중국', 3200, '4.7%', '달짝 청량한 맛', 0, 0, 'baseImage.jpg');
+
+insert into beer values(8, 'BE010030001','에일','호가든', '벨기에', 3000, '4.9%', '달짝 청량한 맛', 0, 0, 'baseImage.jpg');
+
+insert into beer values(9, 'BE020020003','라거','테라', '한국', 2000, '4.5%', '테라슬라', 0, 0, 'baseImage.jpg');
+
+insert into beer values(10, 'BE020020004','라거','카스', '한국', 2000, '4.5%', '국산 밀맥주의 정석', 0, 0, 'baseImage.jpg');
+
+
+
+insert into beer select b_id+10, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+20, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+40, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+80, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+160, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+320, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+640, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+1280, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+insert into beer select b_id+2560, b_code, b_category, b_name, b_country, b_price+1, b_alcohol, b_content, b_like+1, b_dislike, b_image from beer;
+
+
+

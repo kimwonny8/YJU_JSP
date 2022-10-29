@@ -105,6 +105,8 @@ public class BeerPageInfoVO {
 	}
 	
 	public void ajdEndPageNo() {
+		endPageNo = startPageNo + 10;
+		
 		if(endPageNo > pageCnt) {
 			endPageNo = pageCnt;
 		}

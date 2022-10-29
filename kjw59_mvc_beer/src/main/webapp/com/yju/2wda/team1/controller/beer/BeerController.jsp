@@ -66,7 +66,8 @@
 			break;
 		
 		case "R": // 페이징 기능 없는 R-모듈
-			beerList = beerDAO.getBeerList();
+			//beerList = beerDAO.getBeerList();
+			beerList = beerDAO.getBeerListForPage(bpiVO);
 			request.setAttribute("beerList", beerList);
 			pageContext.forward("/com/yju/2wda/team1/view/beer/beer_r.jsp");
 			
@@ -142,6 +143,7 @@
 		case "U2":
 			b_id = Integer.parseInt(request.getParameter("b_id"));
 			beer = beerDAO.getBeer(b_id);
+			beerList = beerDAO.getBeerListForPage(bpiVO);
 			
 			request.setAttribute("beerList", beerList);
 			pageContext.forward("/com/yju/2wda/team1/view/beer/beer_u2.jsp");

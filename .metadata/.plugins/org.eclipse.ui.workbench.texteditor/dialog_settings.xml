@@ -6,8 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=" "/>
+		<item key="selection" value="startPageNo"/>
 		<list key="findhistory">
+			<item value="startPageNo"/>
+			<item value="getEndPageNo"/>
+			<item value="beerList"/>
+			<item value="actionType=U2"/>
+			<item value="actionType=R4"/>
 			<item value="Integer.parseInt("/>
 			<item value="request.getParameter"/>
 			<item value="saveFile"/>
@@ -18,13 +23,12 @@
 			<item value="currentPageNo"/>
 			<item value="templimitCnt"/>
 			<item value="tempcurrentPageNo"/>
-			<item value="limitCnt"/>
-			<item value="argee"/>
-			<item value="response.sendRedirect(&quot;../index.jsp&quot;);"/>
-			<item value="test_r"/>
-			<item value="rs2"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="actionType=U"/>
+			<item value="actionType=U2"/>
+			<item value="actionType=D"/>
 			<item value=" "/>
 			<item value="rs.getString"/>
 			<item value="thumbFileName"/>
@@ -36,10 +40,6 @@
 			<item value="covid_r_kjw59"/>
 			<item value="ㄱㄴ"/>
 			<item value="test"/>
-			<item value="selectNum"/>
-			<item value="selectBtn"/>
-			<item value="member_1조"/>
-			<item value="member_01"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
