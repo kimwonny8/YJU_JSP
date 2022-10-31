@@ -3,6 +3,9 @@
 <%@ include file="/globalData.jsp" %>
 <%@ page import="kjw59_mvc_beer.model.beer.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +45,14 @@
 
 	switch(actionType){
 		case "C": // 기본데이터 입력 C-모듈
+			String imgDirPath = "D:\\Dev\\kjw59_mvc_beer\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\";
+			String thumbImageDir = "D:\\Dev\\kjw59_mvc_beer\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\thumb";	
+			int maxSize = 1024 * 1024 * 5;
+			
+			MultipartRequest multi = new MultipartRequest(request, imgDirPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
+
+			Enumeration<?> files = multi.getFileNames();
+			
 			beer=new BeerDTO();
 			
 			beer.setB_code(request.getParameter("b_code"));
