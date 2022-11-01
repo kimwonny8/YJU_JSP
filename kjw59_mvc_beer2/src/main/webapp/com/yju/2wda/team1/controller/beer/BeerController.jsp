@@ -13,15 +13,17 @@
 </head>
 <body>
 <%
-	String imgDirPath = "D:\\Dev\\kjw59_mvc_beer2\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\";
-	String thumbImageDir = "D:\\Dev\\kjw59_mvc_beer2\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\thumb";	
+	/* String imgDirPath = "D:\\Dev\\kjw59_mvc_beer2\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\";
+	String thumbImageDir = "D:\\Dev\\kjw59_mvc_beer2\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\thumb\\";	
 	
 	int maxSize = 1024 * 1024 * 5; //최대 5G까지 가능 1024 => 1KB 
 	
 	MultipartRequest multi = new MultipartRequest(request, imgDirPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 
 	request.setCharacterEncoding("utf-8");
-	String actionType = multi.getParameter("actionType");
+	String actionType = multi.getParameter("actionType"); */
+	
+	String actionType = request.getParameter("actionType");
 
 	BeerDTO beer;
 	BeerDAO beerDAO;
@@ -50,8 +52,9 @@
 
 	switch(actionType){
 		case "C": // 기본데이터 입력 C-모듈
+			beer=new BeerDTO();
 		
-			// 사진 파일 데이터
+/* 			// 사진 파일 데이터
 			Enumeration<?> files = multi.getFileNames();	
 			String element = "";
 			String originalFileName = "";
@@ -61,20 +64,31 @@
 				originalFileName = multi.getOriginalFileName(element);
 			}
 			
-			beer=new BeerDTO();
+			
+			
+			String pricetmp = multi.getParameter("b_price");
+			int price;
+			try {
+				price = Integer.parseInt(pricetmp);
+			} catch(Exception e){
+				price = 0;
+			}
 			
 			beer.setB_code(multi.getParameter("b_code"));
 			beer.setB_category(multi.getParameter("b_category"));
 			beer.setB_name(multi.getParameter("b_name"));
 			beer.setB_country(multi.getParameter("b_country"));
-			beer.setB_price(Integer.parseInt(multi.getParameter("b_price")));
+			beer.setB_price(price);
 			beer.setB_alcohol(multi.getParameter("b_alcohol"));
 			beer.setB_content(multi.getParameter("b_content"));
 			beer.setB_like(0);
 			beer.setB_dislike(0);
-			beer.setB_image(originalFileName);
+			beer.setB_image(originalFileName); 
 			
-			/* beer.setB_code(request.getParameter("b_code"));
+			new BeerImageAdd().createImage(imgDirPath, thumbImageDir, originalFileName, 5);
+			*/
+			
+			beer.setB_code(request.getParameter("b_code"));
 			beer.setB_category(request.getParameter("b_category"));
 			beer.setB_name(request.getParameter("b_name"));
 			beer.setB_country(request.getParameter("b_country"));
@@ -83,11 +97,10 @@
 			beer.setB_content(request.getParameter("b_content"));
 			beer.setB_like(0);
 			beer.setB_dislike(0);
-			beer.setB_image(originalFileName); */
+			beer.setB_image("default.png"); 
 			
-			new BeerImageAdd().createImage(imgDirPath, thumbImageDir, originalFileName, 5); 
 			result = beerDAO.insertBeer(beer);
-	
+			
 			if(result==true){
 				pageContext.forward("/index.jsp");
 			}

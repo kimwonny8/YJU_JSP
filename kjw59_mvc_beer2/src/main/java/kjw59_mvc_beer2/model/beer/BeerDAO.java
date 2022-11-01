@@ -84,6 +84,7 @@ public class BeerDAO {
 				beer.setB_image(rs.getString("b_image"));
 			}
 			rs.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -204,6 +205,7 @@ public class BeerDAO {
 
 			pstmt.executeUpdate();
 			success = true;
+			System.out.print("업로드완료욤");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return success;
