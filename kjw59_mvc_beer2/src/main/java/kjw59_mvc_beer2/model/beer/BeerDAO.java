@@ -186,11 +186,12 @@ public class BeerDAO {
 		dbConnect();
 		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike, b_image) ";
 		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+		
+		String code="";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, beer.getB_id());
-			pstmt.setString(2, beer.getB_code());
+			pstmt.setString(2, code);
 			pstmt.setString(3, beer.getB_category());
 			pstmt.setString(4, beer.getB_name());
 			pstmt.setString(5, beer.getB_country());
