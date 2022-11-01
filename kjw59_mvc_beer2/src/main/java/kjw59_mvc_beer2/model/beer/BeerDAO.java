@@ -50,6 +50,7 @@ public class BeerDAO {
 				e.printStackTrace();
 			}
 		}
+		
 		// 쿼리 결과셋 객체 해제 부분 추가
 		if(rs != null) {
 			try {
@@ -81,7 +82,7 @@ public class BeerDAO {
 				beer.setB_content(rs.getString("b_content"));
 				beer.setB_like(rs.getInt("b_like"));
 				beer.setB_dislike(rs.getInt("b_dislike"));
-				beer.setB_image(rs.getString("b_image"));
+				//beer.setB_image(rs.getString("b_image"));
 			}
 			rs.close();
 
@@ -95,7 +96,6 @@ public class BeerDAO {
 
 	// 게시판의 현재 페이지 레코드를 반환 메서드 - R4 p29
 	public ArrayList<BeerDTO> getBeerListForPage(BeerPageInfoVO bpiVO) {
-		dbConnect();
 		ArrayList<BeerDTO> list = new ArrayList<BeerDTO>();
 
 		String SQL = "select * from beer ORDER BY b_id limit ?,?";
@@ -136,7 +136,7 @@ public class BeerDAO {
 				beer.setB_content(rs.getString("b_content"));
 				beer.setB_like(rs.getInt("b_like"));
 				beer.setB_dislike(rs.getInt("b_dislike"));
-				beer.setB_image(rs.getString("b_image"));
+				//beer.setB_image(rs.getString("b_image"));
 				list.add(beer);
 			}
 		} catch (SQLException e) {
@@ -150,7 +150,6 @@ public class BeerDAO {
 
 	// 주 키 b_id의 레코드를 반환 메소드 - R
 	public BeerDTO getBeer(int b_id) {
-		dbConnect();
 		String SQL = "select * from beer where b_id=?";
 		BeerDTO beer = new BeerDTO();
 
@@ -170,7 +169,7 @@ public class BeerDAO {
 			beer.setB_content(rs.getString("b_content"));
 			beer.setB_like(rs.getInt("b_like"));
 			beer.setB_dislike(rs.getInt("b_dislike"));
-			beer.setB_image(rs.getString("b_image"));
+			//beer.setB_image(rs.getString("b_image"));
 
 			rs.close();
 		} catch (SQLException e) {
@@ -181,12 +180,12 @@ public class BeerDAO {
 		return beer;
 	}
 
+	
 	// 게시물 등록 메서드 - C
 	public boolean insertBeer(BeerDTO beer) {
 		boolean success = false;
-		dbConnect();
-		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike, b_image) ";
-		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike) ";
+		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		String code="";
 		try {
@@ -201,11 +200,11 @@ public class BeerDAO {
 			pstmt.setString(8, beer.getB_content());
 			pstmt.setInt(9, beer.getB_like());
 			pstmt.setInt(10, beer.getB_dislike());
-			pstmt.setString(11, beer.getB_image());
 
 			pstmt.executeUpdate();
 			success = true;
 			System.out.print("업로드완료욤");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return success;
@@ -214,11 +213,11 @@ public class BeerDAO {
 		}
 		return success;
 	}
+	
 
 	// 데이터 갱신을 위한 메서드 - U
 	public boolean updateBeer(BeerDTO beer) {
 		boolean success = false;
-		dbConnect();
 		String sql = "update beer set b_code=?, b_category=?, b_name=?, b_country=?, "
 				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=?, b_image=? where b_id=? ";
 		try {
@@ -251,7 +250,7 @@ public class BeerDAO {
 
 	public boolean deleteBeer(int b_id) {
 		boolean success = false;
-		dbConnect();
+
 		String sql = "delete from beer where b_id=?";
 		try {
 			pstmt = con.prepareStatement(sql);

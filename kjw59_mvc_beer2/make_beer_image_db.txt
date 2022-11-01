@@ -1,0 +1,10 @@
+create table beer_image(
+i_id int primary key auto_increment,
+i_file_name varchar(30) not null,
+i_original_name varchar(30) not null,
+i_thumbnail_name varchar(30),
+i_file_type varchar(30) not null,
+i_file_size int,
+b_id int,
+foreign key (b_id) references beer (b_id)
+);

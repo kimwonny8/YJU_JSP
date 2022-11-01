@@ -14,10 +14,11 @@
 <h1>마이쇼핑몰(KJW59) - 맥주자료수정(U2)</h1>
 <hr>
 <%
+	session.setAttribute("state", null);
 	BeerDTO beer = (BeerDTO)request.getAttribute("beer");
 %>
 
-<form method="post" action="<%=beerContDir%>/BeerController.jsp">
+<form method="post" action="<%=beerContDir%>/BeerController.jsp" enctype="multipart/form-data">
 	<br>맥주번호(수정불가) : <input type="text" name="b_id" value="<%=beer.getB_id()%>" readonly>
 	<br>맥주코드 : <input type="text" name="b_code" size="30" value="<%=beer.getB_code()%>">
 	<br>맥주종류 : <input type="text" name="b_category" size="30" value="<%=beer.getB_category()%>">
