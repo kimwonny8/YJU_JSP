@@ -3,8 +3,8 @@
 <%@ include file="/globalData.jsp" %>
 <%@ page import="kjw59_mvc_beer.model.beer.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%-- <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %> --%>
 
 <!DOCTYPE html>
 <html>
@@ -45,14 +45,14 @@
 
 	switch(actionType){
 		case "C": // 기본데이터 입력 C-모듈
-			String imgDirPath = "D:\\Dev\\kjw59_mvc_beer\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\";
+			/* String imgDirPath = "D:\\Dev\\kjw59_mvc_beer\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\";
 			String thumbImageDir = "D:\\Dev\\kjw59_mvc_beer\\src\\main\\webapp\\com\\yju\\2wda\\team1\\image\\thumb";	
 			int maxSize = 1024 * 1024 * 5;
 			
 			MultipartRequest multi = new MultipartRequest(request, imgDirPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 
 			Enumeration<?> files = multi.getFileNames();
-			
+			 */
 			beer=new BeerDTO();
 			
 			beer.setB_code(request.getParameter("b_code"));
@@ -154,9 +154,8 @@
 		case "U2":
 			b_id = Integer.parseInt(request.getParameter("b_id"));
 			beer = beerDAO.getBeer(b_id);
-			beerList = beerDAO.getBeerListForPage(bpiVO);
-			
-			request.setAttribute("beerList", beerList);
+
+			request.setAttribute("beer", beer);
 			pageContext.forward("/com/yju/2wda/team1/view/beer/beer_u2.jsp");
 			
 			break;
