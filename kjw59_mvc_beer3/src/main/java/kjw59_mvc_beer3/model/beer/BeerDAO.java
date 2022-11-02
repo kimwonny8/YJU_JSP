@@ -83,7 +83,6 @@ public class BeerDAO {
 				beer.setB_content(rs.getString("b_content"));
 				beer.setB_like(rs.getInt("b_like"));
 				beer.setB_dislike(rs.getInt("b_dislike"));
-				beer.setB_image(rs.getString("b_image"));
 				list.add(beer);
 			}
 			rs.close();
@@ -139,7 +138,6 @@ public class BeerDAO {
 				beer.setB_content(rs.getString("b_content"));
 				beer.setB_like(rs.getInt("b_like"));
 				beer.setB_dislike(rs.getInt("b_dislike"));
-				beer.setB_image(rs.getString("b_image"));
 				list.add(beer);
 			}
 		} catch (SQLException e) {
@@ -172,7 +170,6 @@ public class BeerDAO {
 			beer.setB_content(rs.getString("b_content"));
 			beer.setB_like(rs.getInt("b_like"));
 			beer.setB_dislike(rs.getInt("b_dislike"));
-			beer.setB_image(rs.getString("b_image"));
 
 			rs.close();
 		} catch (SQLException e) {
@@ -187,8 +184,8 @@ public class BeerDAO {
 	public boolean insertBeer(BeerDTO beer) {
 		boolean success = false;
 		
-		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike, b_image) ";
-		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike) ";
+		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		String code="";
 		try {
@@ -203,7 +200,6 @@ public class BeerDAO {
 			pstmt.setString(8, beer.getB_content());
 			pstmt.setInt(9, beer.getB_like());
 			pstmt.setInt(10, beer.getB_dislike());
-			pstmt.setString(11, beer.getB_image());
 
 			pstmt.executeUpdate();
 			success = true;
@@ -222,7 +218,7 @@ public class BeerDAO {
 		boolean success = false;
 	
 		String sql = "update beer set b_code=?, b_category=?, b_name=?, b_country=?, "
-				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=?, b_image=? where b_id=? ";
+				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=? where b_id=? ";
 		try {
 			pstmt = con.prepareStatement(sql);
 
@@ -235,7 +231,6 @@ public class BeerDAO {
 			pstmt.setString(7, beer.getB_content());
 			pstmt.setInt(8, beer.getB_like());
 			pstmt.setInt(9, beer.getB_dislike());
-			pstmt.setString(10, beer.getB_image());
 			pstmt.setInt(11, beer.getB_id());
 
 			int rowUdt = pstmt.executeUpdate();
@@ -269,6 +264,27 @@ public class BeerDAO {
 			disConnect();
 		}
 		return success;
+	}
+	
+	public int selectB_id(String b_code) throws SQLException {
+		int b_id=0;
+
+		String sql = "select b_id from beer where b_code = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, b_code);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) b_id=rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return b_id;
+			
+		} finally {
+			disConnect();
+		}
+		return b_id;
 	}
 
 }

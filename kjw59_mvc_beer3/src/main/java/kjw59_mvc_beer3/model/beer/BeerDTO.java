@@ -12,7 +12,6 @@ public class BeerDTO {
 	private String b_content;
 	private int b_like;
 	private int b_dislike;
-	private String b_image;
 	
 	public BeerDTO() {
 		super();
@@ -32,7 +31,6 @@ public class BeerDTO {
 		this.b_content = b_content;
 		this.b_like = b_like;
 		this.b_dislike = b_dislike;
-		this.b_image = b_image;
 	}
 
 	public int getB_id() {
@@ -113,14 +111,6 @@ public class BeerDTO {
 
 	public void setB_dislike(int b_dislike) {
 		this.b_dislike = b_dislike;
-	}
-
-	public String getB_image() {
-		return b_image;
-	}
-
-	public void setB_image(String b_image) {
-		this.b_image = b_image;
 	}
 
 	

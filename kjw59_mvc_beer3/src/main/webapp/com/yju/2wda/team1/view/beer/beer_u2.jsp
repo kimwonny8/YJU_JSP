@@ -28,7 +28,7 @@
 	<br>맥주설명 : <input type="text" name="b_content" size="30" value="<%=beer.getB_content()%>">
 	<br>좋아요 : <input type="text" name="b_content" size="30" value="<%=beer.getB_like()%>">
 	<br>싫어요 : <input type="text" name="b_content" size="30" value="<%=beer.getB_dislike()%>">
-	<br>맥주사진 : <input type="text" name="b_image" size="30" value="<%=beer.getB_image()%>">
+	<br>맥주사진 : <input type="text" name="b_image" size="30">
 	
 	<br><input type="hidden" name="actionType" value="U_ID">
 	<br><input type="submit" value="저장">

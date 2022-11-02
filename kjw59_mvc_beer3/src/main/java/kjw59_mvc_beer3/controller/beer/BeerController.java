@@ -43,28 +43,25 @@ public class BeerController extends HttpServlet implements Servlet {
 		int cpn;
 		
 		switch(actionType){
-		case "C": // 기본데이터 입력 C-모듈
-			beer=new BeerDTO();
-			beer.setB_code(request.getParameter("b_code"));
-			beer.setB_category(request.getParameter("b_category"));
-			beer.setB_name(request.getParameter("b_name"));
-			beer.setB_country(request.getParameter("b_country"));
-			beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
-			beer.setB_alcohol(request.getParameter("b_alcohol"));
-			beer.setB_content(request.getParameter("b_content"));
-			beer.setB_like(0);
-			beer.setB_dislike(0);
-			beer.setB_image("default.png"); 
-			
-			result = beerDAO.insertBeer(beer);
-			
-			if(result==true){
-				request.getRequestDispatcher("/index.jsp").forward(request, response);
-			}
-			else {
-				request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").forward(request, response);
-			}
-			break;
+		/*
+		 * case "C": // 기본데이터 입력 C-모듈 beer=new BeerDTO();
+		 * beer.setB_code(request.getParameter("b_code"));
+		 * beer.setB_category(request.getParameter("b_category"));
+		 * beer.setB_name(request.getParameter("b_name"));
+		 * beer.setB_country(request.getParameter("b_country"));
+		 * beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
+		 * beer.setB_alcohol(request.getParameter("b_alcohol"));
+		 * beer.setB_content(request.getParameter("b_content")); beer.setB_like(0);
+		 * beer.setB_dislike(0);
+		 * 
+		 * 
+		 * result = beerDAO.insertBeer(beer);
+		 * 
+		 * if(result==true){ request.getRequestDispatcher("/index.jsp").forward(request,
+		 * response); } else {
+		 * request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").
+		 * forward(request, response); } break;
+		 */
 			
 		case "R": // 페이징 기능 없는 R-모듈
 			beerList = beerDAO.getBeerList();
@@ -149,30 +146,27 @@ public class BeerController extends HttpServlet implements Servlet {
 			
 			break;
 			
-		case "U_ID":	
-			beer = new BeerDTO();	
-
-			beer.setB_id(Integer.parseInt(request.getParameter("b_id")));
-			beer.setB_code(request.getParameter("b_code"));
-			beer.setB_category(request.getParameter("b_category"));
-			beer.setB_name(request.getParameter("b_name"));
-			beer.setB_country(request.getParameter("b_country"));
-			beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
-			beer.setB_alcohol(request.getParameter("b_alcohol"));
-			beer.setB_content(request.getParameter("b_content"));
-			beer.setB_like(Integer.parseInt(request.getParameter("b_like")));
-			beer.setB_dislike(Integer.parseInt(request.getParameter("b_dislike")));
-			beer.setB_image(request.getParameter("b_image"));
-			
-			result = beerDAO.updateBeer(beer);
-			
-			if(result==true){
-				request.getRequestDispatcher("/index.jsp").forward(request, response);
-			}
-			else {
-				request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").forward(request, response);
-			}
-			break;
+		/*
+		 * case "U_ID": beer = new BeerDTO();
+		 * 
+		 * beer.setB_id(Integer.parseInt(request.getParameter("b_id")));
+		 * beer.setB_code(request.getParameter("b_code"));
+		 * beer.setB_category(request.getParameter("b_category"));
+		 * beer.setB_name(request.getParameter("b_name"));
+		 * beer.setB_country(request.getParameter("b_country"));
+		 * beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
+		 * beer.setB_alcohol(request.getParameter("b_alcohol"));
+		 * beer.setB_content(request.getParameter("b_content"));
+		 * beer.setB_like(Integer.parseInt(request.getParameter("b_like")));
+		 * beer.setB_dislike(Integer.parseInt(request.getParameter("b_dislike")));
+		 * 
+		 * result = beerDAO.updateBeer(beer);
+		 * 
+		 * if(result==true){ request.getRequestDispatcher("/index.jsp").forward(request,
+		 * response); } else {
+		 * request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").
+		 * forward(request, response); } break;
+		 */
 		}
 	}
 	

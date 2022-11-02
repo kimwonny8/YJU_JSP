@@ -25,4 +25,13 @@
   	<servlet-name>BeerController</servlet-name>
   	<url-pattern>*.be</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BeerMultiController</servlet-name>
+  	<servlet-class>kjw59_mvc_beer3.controller.beer.BeerMultiController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BeerMultiController</servlet-name>
+  	<url-pattern>*.be2</url-pattern>
+  </servlet-mapping>
 </web-app>

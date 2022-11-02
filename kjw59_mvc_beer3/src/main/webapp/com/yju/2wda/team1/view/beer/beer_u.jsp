@@ -57,7 +57,7 @@
 			<td><%=beer.getB_content()%></td>
 			<td><%=beer.getB_like()%></td>
 			<td><%=beer.getB_dislike()%></td>
-			<td><%=beer.getB_image()%></td>
+<%-- 			<td><%=beer.getB_image()%></td> --%>
 			<td><a href="./BeerController.be?actionType=U2&b_id=<%=beer.getB_id()%>">UPDATE</a></td>
 		</tr>
 <%

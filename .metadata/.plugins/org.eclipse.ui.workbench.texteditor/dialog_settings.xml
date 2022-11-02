@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="./BeerController.be?"/>
+		<item key="selection" value="ResultSet"/>
 		<list key="findhistory">
+			<item value="ResultSet"/>
+			<item value="filesystemName"/>
 			<item value="&lt;%=beerContDir%&gt;/BeerController.jsp?"/>
 			<item value="currentPage="/>
 			<item value="userName"/>
@@ -21,8 +23,6 @@
 			<item value="saveFile"/>
 			<item value="loadFile"/>
 			<item value="originalFileName"/>
-			<item value="i_thumbnail_name"/>
-			<item value="utd"/>
 		</list>
 		<list key="replacehistory">
 			<item value="./BeerController.be?"/>

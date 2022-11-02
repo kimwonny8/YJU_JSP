@@ -57,7 +57,7 @@
 			<td><%=beer.getB_content()%></td>
 			<td><%=beer.getB_like()%></td>
 			<td><%=beer.getB_dislike()%></td>
-			<td><%=beer.getB_image()%></td>
+<%-- 			<td><%=beer.getB_image()%></td> --%>
 		</tr>
 <%
 	}

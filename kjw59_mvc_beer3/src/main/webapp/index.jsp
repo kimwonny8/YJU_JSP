@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>마이쇼핑몰(KJW59) ver0.2 - DBCP</h1>
+<h1>마이쇼핑몰(KJW59) ver0.3</h1>
 <hr>
 <h2>맥주샵 시스템 - CRUD with MVC #2</h2>
-<h2>MVC패턴적용,DAO,DTO,VO활용,DBCP/서블릿/스프링 미적용</h2>
+<h2>MVC패턴적용,DAO,DTO,VO활용,DBCP/서블릿/스프링 적용</h2>
 <h3>JNDI, DBCP 구성 및 활용</h3>
 
 <ul>
