@@ -66,11 +66,11 @@
 	</tbody>
 </table>
 
-<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPage=0">[FIRST]</a>
+<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPageNo=0">[FIRST]</a>
 <%
 	if(currentPageNo > 0){
 %>
-	<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPage=<%=(currentPageNo-1)%>">[PRE]</a>
+	<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
 <%
 	} else{
 %>
@@ -84,7 +84,7 @@
 <%
 		} else {
 %>
-			<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPage=<%=i%>">[<%=(i+1)%>]</a>
+			<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
 <%			
 		}
 	}
@@ -92,7 +92,7 @@
 <%
 	if(currentPageNo < bpiVO.getPageCnt()-1){
 %>
-	<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPage=<%=(currentPageNo+1)%>">[NXT]</a>
+	<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPageNo=<%=(currentPageNo+1)%>">[NXT]</a>
 <%
 	} else {
 %>	
@@ -100,7 +100,7 @@
 <% 
 	}
 %>
-<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPage=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
+<a href="<%=beerContDir%>/BeerController.jsp?actionType=U&currentPageNo=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
 
 <br><a href="<%=rootDir%>/index.jsp">홈으로 돌아가기</a>
 </body>
