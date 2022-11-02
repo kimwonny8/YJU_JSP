@@ -57,6 +57,7 @@
 			<td><%=beer.getB_content()%></td>
 			<td><%=beer.getB_like()%></td>
 			<td><%=beer.getB_dislike()%></td>
+			<td><%=beer.getB_image()%></td>
 			<td><a href="<%=beerContDir%>/BeerController.jsp?actionType=D_ID&b_id=<%=beer.getB_id()%>">DELETE</a></td>
 		</tr>
 <%

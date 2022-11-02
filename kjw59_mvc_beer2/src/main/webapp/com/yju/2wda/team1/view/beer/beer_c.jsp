@@ -8,6 +8,7 @@
 <title>마이쇼핑몰(KJW59) - 맥주자료입력(C)</title>
 </head>
 <body>
+
 <h1>마이쇼핑몰(KJW59) - 맥주자료입력(C)</h1>
 
 <form method="post" action="<%=beerContDir%>/BeerController.jsp" enctype="multipart/form-data">
@@ -21,7 +22,7 @@
 	<br>맥주사진 : <input type="file" name="b_image" size="30">
 	<br><input type="hidden" name="actionType" value="C">
 	<br><input type="submit" value="저장">
-</form> 
+</form>
 
 <br><a href="<%=rootDir%>/index.jsp">홈으로 돌아가기</a>
 
