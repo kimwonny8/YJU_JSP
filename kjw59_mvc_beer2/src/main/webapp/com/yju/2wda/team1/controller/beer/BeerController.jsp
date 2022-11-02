@@ -110,8 +110,8 @@
 			break;
 		
 		case "R": // 페이징 기능 없는 R-모듈
-			//beerList = beerDAO.getBeerList();
-			beerList = beerDAO.getBeerListForPage(bpiVO);
+			beerList = beerDAO.getBeerList();
+			
 			request.setAttribute("beerList", beerList);
 			pageContext.forward("/com/yju/2wda/team1/view/beer/beer_r.jsp");
 			

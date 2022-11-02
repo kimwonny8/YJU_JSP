@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="userName"/>
+		<item key="selection" value="./BeerController.be?"/>
 		<list key="findhistory">
+			<item value="&lt;%=beerContDir%&gt;/BeerController.jsp?"/>
+			<item value="currentPage="/>
 			<item value="userName"/>
 			<item value="startPageNo"/>
 			<item value="getEndPageNo"/>
@@ -21,10 +23,10 @@
 			<item value="originalFileName"/>
 			<item value="i_thumbnail_name"/>
 			<item value="utd"/>
-			<item value="currentPageNo"/>
-			<item value="templimitCnt"/>
 		</list>
 		<list key="replacehistory">
+			<item value="./BeerController.be?"/>
+			<item value="currentPageNo="/>
 			<item value=""/>
 			<item value="actionType=U"/>
 			<item value="actionType=U2"/>
@@ -38,15 +40,13 @@
 			<item value="agree"/>
 			<item value="response.sendRedirect(&quot;./index_kjw59.jsp&quot;);"/>
 			<item value="covid_r_kjw59"/>
-			<item value="ㄱㄴ"/>
-			<item value="test"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="1097"/>
 		<item key="DIALOG_Y_ORIGIN" value="234"/>
 		<item key="DIALOG_WIDTH" value="322"/>
-		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_HEIGHT" value="390"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

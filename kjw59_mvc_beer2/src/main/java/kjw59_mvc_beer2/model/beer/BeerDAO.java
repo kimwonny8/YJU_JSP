@@ -82,6 +82,7 @@ public class BeerDAO {
 				beer.setB_like(rs.getInt("b_like"));
 				beer.setB_dislike(rs.getInt("b_dislike"));
 				beer.setB_image(rs.getString("b_image"));
+				list.add(beer);
 			}
 			rs.close();
 
