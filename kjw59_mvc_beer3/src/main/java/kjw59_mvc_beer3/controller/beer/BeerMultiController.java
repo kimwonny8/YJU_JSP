@@ -1,14 +1,29 @@
 package kjw59_mvc_beer3.controller.beer;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+
+import javax.imageio.ImageIO;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import kjw59_mvc_beer3.model.beer.*;
+import kjw59_mvc_beer3.model.beer.BeerDAO;
+import kjw59_mvc_beer3.model.beer.BeerDTO;
+import kjw59_mvc_beer3.model.beer.BeerImageDAO;
+import kjw59_mvc_beer3.model.beer.BeerImageDTO;
 
 public class BeerMultiController extends HttpServlet implements Servlet{
 
@@ -45,8 +60,9 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			i_original_name = multi.getOriginalFileName(element);
 			i_file_type = multi.getContentType(element);
 			i_file_size = (int) multi.getFile(element).length();
-		}
 
+		}
+		
 		String actionType = multi.getParameter("actionType");
 
 		BeerDTO beer;
@@ -78,12 +94,15 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			beer.setB_content(multi.getParameter("b_content"));
 			
 			// beer에 추가
-			beerDAO.insertBeer(beer);
+			boolean test = beerDAO.insertBeer(beer);
+			System.out.println("beer insert 결과 "+test);
 			
 			// beer에서 b_id 받아서 beerImage 추가
 			int b_id=0;
+			beerDAO=new BeerDAO();
 			try {
-				b_id = beerDAO.selectB_id(b_code);
+				b_id = beerDAO.selectB_id(beer);
+				System.out.println(beer.getB_code());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -100,6 +119,8 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			beerImage.setB_id(b_id);
 
 			result = beerImageDAO.insertBeer(beerImage);
+			
+			beerImageDAO.createImageThumb(imgDirPath, thumbImageDir, i_original_name, 5);
 			
 			if(result==true){
 				request.getRequestDispatcher("/index.jsp").forward(request, response);

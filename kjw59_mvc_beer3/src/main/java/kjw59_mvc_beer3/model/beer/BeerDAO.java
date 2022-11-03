@@ -187,11 +187,10 @@ public class BeerDAO {
 		String sql = "insert into beer(b_id, b_code, b_category, b_name, b_country, b_price, b_alcohol, b_content, b_like, b_dislike) ";
 		sql += "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
-		String code="";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, beer.getB_id());
-			pstmt.setString(2, code);
+			pstmt.setString(2, beer.getB_code());
 			pstmt.setString(3, beer.getB_category());
 			pstmt.setString(4, beer.getB_name());
 			pstmt.setString(5, beer.getB_country());
@@ -203,12 +202,12 @@ public class BeerDAO {
 
 			pstmt.executeUpdate();
 			success = true;
-			System.out.print("업로드완료욤");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return success;
 		} finally {
 			disConnect();
+			
 		}
 		return success;
 	}
@@ -266,17 +265,20 @@ public class BeerDAO {
 		return success;
 	}
 	
-	public int selectB_id(String b_code) throws SQLException {
+	public int selectB_id(BeerDTO beer) throws SQLException {
 		int b_id=0;
 
 		String sql = "select b_id from beer where b_code = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, b_code);
+			pstmt.setString(1, beer.getB_code());
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()) b_id=rs.getInt(1);
-			
+			if(rs.next()) {
+				b_id=rs.getInt(1);
+				System.out.println("b_id: "+b_id);
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return b_id;
@@ -284,6 +286,7 @@ public class BeerDAO {
 		} finally {
 			disConnect();
 		}
+		
 		return b_id;
 	}
 
