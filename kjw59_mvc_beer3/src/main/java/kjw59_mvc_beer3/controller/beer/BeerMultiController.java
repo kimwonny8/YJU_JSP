@@ -83,13 +83,20 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			beerDAO=new BeerDAO();
 			beer = new BeerDTO();
 			
-			String b_code=multi.getParameter("b_code");
+			// 가격이 숫자가 아닐때 오류처리
+			String pricetmp = multi.getParameter("b_price");
+			int b_price;
+			try {
+				b_price = Integer.parseInt(pricetmp);
+			} catch(Exception e){
+				b_price = 0;
+			}
 			
-			beer.setB_code(b_code);
+			beer.setB_code(multi.getParameter("b_code"));
 			beer.setB_category(multi.getParameter("b_category"));
 			beer.setB_name(multi.getParameter("b_name"));
 			beer.setB_country(multi.getParameter("b_country"));
-			beer.setB_price(Integer.parseInt(multi.getParameter("b_price")));
+			beer.setB_price(b_price);
 			beer.setB_alcohol(multi.getParameter("b_alcohol"));
 			beer.setB_content(multi.getParameter("b_content"));
 			

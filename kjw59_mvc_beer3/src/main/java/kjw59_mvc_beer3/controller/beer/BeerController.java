@@ -42,6 +42,11 @@ public class BeerController extends HttpServlet implements Servlet {
 		String currentPageNo;
 		int cpn;
 		
+		
+		BeerSelectInfoVO selectVO;
+		ArrayList<BeerSelectInfoVO> selectList;
+		
+		
 		switch(actionType){
 		/*
 		 * case "C": // 기본데이터 입력 C-모듈 beer=new BeerDTO();
@@ -62,11 +67,11 @@ public class BeerController extends HttpServlet implements Servlet {
 		 * request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").
 		 * forward(request, response); } break;
 		 */
-			
+		
 		case "R": // 페이징 기능 없는 R-모듈
-			beerList = beerDAO.getBeerList();
+			selectList = beerDAO.getBeerList();
 
-			request.setAttribute("beerList", beerList);
+			request.setAttribute("beerList", selectList);
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r.jsp").forward(request, response);
 			break;
 		

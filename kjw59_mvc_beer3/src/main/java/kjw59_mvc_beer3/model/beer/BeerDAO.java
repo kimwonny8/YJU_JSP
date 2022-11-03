@@ -2,7 +2,6 @@ package kjw59_mvc_beer3.model.beer;
 
 import java.sql.*;
 import javax.sql.*;
-
 import kjw59_mvc_beer3.model.beer.BeerDTO;
 
 import java.util.ArrayList;
@@ -17,7 +16,8 @@ public class BeerDAO {
 	Context init = null; // 컨텍스트 객체 변수
 	DataSource ds = null; // 데이터소스 객체 변수
 	ResultSet rs = null; // 쿼리 결과 셋 객체 변수
-
+	BeerSelectInfoVO selectVO;
+	
 	public BeerDAO() {
 		super();
 		dbConnect();
@@ -63,27 +63,34 @@ public class BeerDAO {
 	}
 
 	// 게시판의 모든 레코드를 반환 메소드 - R
-	public ArrayList<BeerDTO> getBeerList() {
-		ArrayList<BeerDTO> list = new ArrayList<BeerDTO>();
+	public ArrayList<BeerSelectInfoVO> getBeerList() {
+		ArrayList<BeerSelectInfoVO> selectList = new ArrayList<BeerSelectInfoVO>();
 
-		String SQL = "select * from beer";
+		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
+				+ "from beer b JOIN beer_image i on (b.b_id = i.b_id)";
+		
 		try {
 			pstmt = con.prepareStatement(SQL);
 			ResultSet rs = pstmt.executeQuery();
+			
+			boolean tmp=rs.next();
+			while (tmp) {
+				selectVO=new BeerSelectInfoVO();	
 
-			while (rs.next()) {
-				BeerDTO beer = new BeerDTO();
-				beer.setB_id(rs.getInt("b_id"));
-				beer.setB_code(rs.getString("b_code"));
-				beer.setB_category(rs.getString("b_category"));
-				beer.setB_name(rs.getString("b_name"));
-				beer.setB_country(rs.getString("b_country"));
-				beer.setB_price(rs.getInt("b_price"));
-				beer.setB_alcohol(rs.getString("b_alcohol"));
-				beer.setB_content(rs.getString("b_content"));
-				beer.setB_like(rs.getInt("b_like"));
-				beer.setB_dislike(rs.getInt("b_dislike"));
-				list.add(beer);
+				selectVO.setB_id(rs.getInt("b_id"));
+				selectVO.setB_code(rs.getString("b_code"));
+				selectVO.setB_category(rs.getString("b_category"));
+				selectVO.setB_name(rs.getString("b_name"));
+				selectVO.setB_country(rs.getString("b_country"));
+				selectVO.setB_price(rs.getInt("b_price"));
+				selectVO.setB_alcohol(rs.getString("b_alcohol"));
+				selectVO.setB_content(rs.getString("b_content"));
+				selectVO.setB_like(rs.getInt("b_like"));
+				selectVO.setB_dislike(rs.getInt("b_dislike"));
+				selectVO.setI_file_name(rs.getNString("i_file_name"));
+
+				selectList.add(selectVO);
 			}
 			rs.close();
 
@@ -92,7 +99,7 @@ public class BeerDAO {
 		} finally {
 			disConnect();
 		}
-		return list;
+		return selectList; // 문제다ㅏ..
 	}
 
 	// 게시판의 현재 페이지 레코드를 반환 메서드 - R4 p29
@@ -127,6 +134,7 @@ public class BeerDAO {
 
 			while (rs.next()) {
 				BeerDTO beer = new BeerDTO();
+				BeerImageDTO beerImage= new BeerImageDTO();
 
 				beer.setB_id(rs.getInt("b_id"));
 				beer.setB_code(rs.getString("b_code"));
