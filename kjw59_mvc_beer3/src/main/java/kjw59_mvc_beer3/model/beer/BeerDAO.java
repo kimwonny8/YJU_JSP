@@ -19,7 +19,7 @@ public class BeerDAO {
 	Context init = null; // 컨텍스트 객체 변수
 	DataSource ds = null; // 데이터소스 객체 변수
 	ResultSet rs = null; // 쿼리 결과 셋 객체 변수
-	BeerSelectInfoVO selectVO;
+
 	CategoryCodeDTO category;
 	CountryCodeDTO country;
 
@@ -70,8 +70,8 @@ public class BeerDAO {
 
 	// 게시판의 모든 레코드를 반환 메소드 - R
 	public ArrayList<BeerSelectInfoVO> getBeerList() {
-		ArrayList<BeerSelectInfoVO> list = new ArrayList<BeerSelectInfoVO>();
-
+		ArrayList<BeerSelectInfoVO> list = new ArrayList<BeerSelectInfoVO>();	
+		
 		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
 				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
 				+ "from beer b JOIN beer_image i on (b.b_id = i.b_id)";
@@ -80,9 +80,8 @@ public class BeerDAO {
 			pstmt = con.prepareStatement(SQL);
 			ResultSet rs = pstmt.executeQuery();
 			
-			selectVO=new BeerSelectInfoVO();	
 			while (rs.next()) {
-
+				BeerSelectInfoVO selectVO=new BeerSelectInfoVO();
 				selectVO.setB_id(rs.getInt("b_id"));
 				selectVO.setB_code(rs.getString("b_code"));
 				selectVO.setB_category(rs.getString("b_category"));
@@ -108,7 +107,7 @@ public class BeerDAO {
 	}
 
 	
-	// 게시판의 현재 페이지 레코드를 반환 메서드 - R4 p29
+	// 게시판의 현재 페이지 레코드를 반환 메서드 - R4
 	public ArrayList<BeerSelectInfoVO> getBeerListForPage(BeerPageInfoVO bpiVO) {
 
 		ArrayList<BeerSelectInfoVO> list = new ArrayList<>();
@@ -143,6 +142,7 @@ public class BeerDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				BeerSelectInfoVO selectVO=new BeerSelectInfoVO();
 				selectVO.setB_id(rs.getInt("b_id"));
 				selectVO.setB_code(rs.getString("b_code"));
 				selectVO.setB_category(rs.getString("b_category"));
@@ -231,7 +231,7 @@ public class BeerDAO {
 		}
 		return success;
 	}
-/*
+
 	// 데이터 갱신을 위한 메서드 - U
 	public boolean updateBeer(BeerDTO beer) {
 		boolean success = false;
@@ -240,7 +240,6 @@ public class BeerDAO {
 				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=? where b_id=? ";
 		try {
 			pstmt = con.prepareStatement(sql);
-
 			pstmt.setString(1, beer.getB_code());
 			pstmt.setString(2, beer.getB_category());
 			pstmt.setString(3, beer.getB_name());
@@ -250,7 +249,7 @@ public class BeerDAO {
 			pstmt.setString(7, beer.getB_content());
 			pstmt.setInt(8, beer.getB_like());
 			pstmt.setInt(9, beer.getB_dislike());
-			pstmt.setInt(11, beer.getB_id());
+			pstmt.setInt(10, beer.getB_id());
 
 			int rowUdt = pstmt.executeUpdate();
 			if (rowUdt == 1)
@@ -273,7 +272,6 @@ public class BeerDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, b_id);
 			pstmt.executeUpdate();
-
 			success = true;
 
 		} catch (SQLException e) {
@@ -284,7 +282,7 @@ public class BeerDAO {
 		}
 		return success;
 	}
-	*/
+	
 	public int selectB_id(BeerDTO beer) throws SQLException {
 		int b_id=0;
 

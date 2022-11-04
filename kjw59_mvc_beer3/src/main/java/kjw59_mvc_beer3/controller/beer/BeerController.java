@@ -78,14 +78,14 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			
 			break;
-		/*
+		
 		case "D_ID": // 조건에 해당하는 레코드 삭제 처리
 			int b_id = Integer.parseInt(request.getParameter("b_id"));
 			
 			result = beerDAO.deleteBeer(b_id);
 			
 			if(result==true){
-				request.getRequestDispatcher("/com/yju/2wda/team1/controller/beer/BeerController.jsp?actionType=D").forward(request, response);
+				request.getRequestDispatcher("/com/yju/2wda/team1/controller/beer/BeerController.be?actionType=D").forward(request, response);
 			}
 			else {
 				request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").forward(request, response);
@@ -106,6 +106,7 @@ public class BeerController extends HttpServlet implements Servlet {
 			
 			break;
 	
+		
 		case "U": // 페이지당 디스플레이 레코드 갯수 출력 및 수정 처리
 			currentPageNo = request.getParameter("currentPageNo");
 			cpn = (currentPageNo == null)? 0 : Integer.parseInt(currentPageNo);
@@ -128,7 +129,7 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_u2.jsp").forward(request, response);
 			
 			break;
-		*/
+		
 		}
 	}
 	

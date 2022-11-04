@@ -490,3 +490,11 @@
 11월 04, 2022 18:39:30.875 [11488:3844:1104/183930.875:ERROR:device_event_log_impl.cc(215)] [18:39:30.874] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 11월 04, 2022 18:40:28.766 [11488:8020:1104/184028.766:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 11월 04, 2022 19:13:46.908 [11488:3844:1104/191346.907:ERROR:interface_endpoint_client.cc(690)] Message 0 rejected by interface blink.mojom.WidgetHost
+11월 04, 2022 20:38:24.993 [12864:7280:1104/203824.993:ERROR:device_event_log_impl.cc(215)] [20:38:24.993] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 20:38:25.01 [12864:7280:1104/203825.000:ERROR:device_event_log_impl.cc(215)] [20:38:25.000] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 20:38:25.01 [12864:7280:1104/203825.001:ERROR:device_event_log_impl.cc(215)] [20:38:25.000] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 20:39:22.758 [12864:1860:1104/203922.758:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+11월 04, 2022 21:31:05.875 [10216:13140:1104/213105.875:ERROR:device_event_log_impl.cc(215)] [21:31:05.875] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 21:31:05.883 [10216:13140:1104/213105.883:ERROR:device_event_log_impl.cc(215)] [21:31:05.883] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 21:31:05.883 [10216:13140:1104/213105.883:ERROR:device_event_log_impl.cc(215)] [21:31:05.883] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+11월 04, 2022 21:32:03.606 [10216:13576:1104/213203.606:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

@@ -112,8 +112,7 @@ public class BeerImageDAO {
 			pstmt.setString(4, beer.getI_file_type());
 			pstmt.setInt(5, beer.getI_file_size());
 			pstmt.setInt(6, beer.getB_id());
-		
-
+			
 			int rowUdt = pstmt.executeUpdate();
 			if (rowUdt == 1)
 				success = true;

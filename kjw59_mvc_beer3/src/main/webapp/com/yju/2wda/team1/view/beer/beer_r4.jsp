@@ -14,12 +14,12 @@
 <h1>마이쇼핑몰(KJW59) - 맥주자료조회(R4, R41)</h1>
 <hr>
 <%
-	BeerDTO beer;
-	ArrayList<BeerDTO> beerList;
+ 	BeerSelectInfoVO selectVO;
+	ArrayList<BeerSelectInfoVO> beerList;
 	BeerPageInfoVO bpiVO;
 	
 	bpiVO = (BeerPageInfoVO)session.getAttribute("beerPageInfoVO");
-	beerList = (ArrayList<BeerDTO>)request.getAttribute("beerList");
+	beerList = (ArrayList<BeerSelectInfoVO>)request.getAttribute("beerList");
 	
 	int currentPageNo = bpiVO.getCurrentPageNo();
 %>
@@ -44,24 +44,24 @@
 	<tbody>
 <%
 	for(int i=0; i<beerList.size(); i++){
-		beer = beerList.get(i);
+		selectVO = beerList.get(i);
 %>	
 		<tr>
-			<td><%=beer.getB_id()%></td>
-			<td><%=beer.getB_code()%></td>
-			<td><%=beer.getB_category()%></td>
-			<td><%=beer.getB_name()%></td>
-			<td><%=beer.getB_country()%></td>
-			<td><%=beer.getB_price()%></td>
-			<td><%=beer.getB_alcohol()%></td>
-			<td><%=beer.getB_content()%></td>
-			<td><%=beer.getB_like()%></td>
-			<td><%=beer.getB_dislike()%></td>
-<%-- 			<td><%=beer.getB_image()%></td> --%>
+			<td><%=selectVO.getB_id()%></td>
+			<td><%=selectVO.getB_code()%></td>
+			<td><%=selectVO.getB_category()%></td>
+			<td><%=selectVO.getB_name()%></td>
+			<td><%=selectVO.getB_country()%></td>
+			<td><%=selectVO.getB_price()%></td>
+			<td><%=selectVO.getB_alcohol()%></td>
+			<td><%=selectVO.getB_content()%></td>
+			<td><%=selectVO.getB_like()%></td>
+			<td><%=selectVO.getB_dislike()%></td>
+ 			<td><%=selectVO.getI_file_name()%></td> 
 		</tr>
 <%
 	}
-%>	
+%>		
 	</tbody>
 </table>
 
