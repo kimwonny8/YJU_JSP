@@ -12,7 +12,7 @@
 <h1>마이쇼핑몰(KJW59) - 맥주자료입력(C)</h1>
 
 <form method="post" action="./BeerMultiController.be2" enctype="multipart/form-data">
-	<br>맥주코드 : <input type="text" name="b_code" size="30">
+ 	<br>맥주코드 : <input type="text" name="b_code" size="30">
 	<br>맥주종류 : <input type="text" name="b_category" size="30">
 	<br>맥주이름 : <input type="text" name="b_name" size="30">
 	<br>맥주국가 : <input type="text" name="b_country" size="30">

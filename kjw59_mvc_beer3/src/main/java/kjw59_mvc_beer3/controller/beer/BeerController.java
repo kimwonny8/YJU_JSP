@@ -22,9 +22,10 @@ public class BeerController extends HttpServlet implements Servlet {
 
 		BeerDTO beer;
 		BeerDAO beerDAO;
-		ArrayList<BeerDTO> beerList;
+		ArrayList<BeerSelectInfoVO> beerList;
 		
 		BeerPageInfoVO bpiVO;
+		BeerSelectInfoVO selectVO;
 		
 		if(session.getAttribute("beerPageInfoVO")==null){
 			bpiVO=new BeerPageInfoVO();
@@ -43,38 +44,15 @@ public class BeerController extends HttpServlet implements Servlet {
 		int cpn;
 		
 		
-		BeerSelectInfoVO selectVO;
-		ArrayList<BeerSelectInfoVO> selectList;
-		
-		
 		switch(actionType){
-		/*
-		 * case "C": // 기본데이터 입력 C-모듈 beer=new BeerDTO();
-		 * beer.setB_code(request.getParameter("b_code"));
-		 * beer.setB_category(request.getParameter("b_category"));
-		 * beer.setB_name(request.getParameter("b_name"));
-		 * beer.setB_country(request.getParameter("b_country"));
-		 * beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
-		 * beer.setB_alcohol(request.getParameter("b_alcohol"));
-		 * beer.setB_content(request.getParameter("b_content")); beer.setB_like(0);
-		 * beer.setB_dislike(0);
-		 * 
-		 * 
-		 * result = beerDAO.insertBeer(beer);
-		 * 
-		 * if(result==true){ request.getRequestDispatcher("/index.jsp").forward(request,
-		 * response); } else {
-		 * request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").
-		 * forward(request, response); } break;
-		 */
 		
 		case "R": // 페이징 기능 없는 R-모듈
-			selectList = beerDAO.getBeerList();
+			beerList = beerDAO.getBeerList();
 
-			request.setAttribute("beerList", selectList);
+			request.setAttribute("beerList", beerList);
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r.jsp").forward(request, response);
 			break;
-		
+		/*
 		case "R4": // 페이징 기능 포함 R-모듈
 			currentPageNo = request.getParameter("currentPageNo");
 			cpn = (currentPageNo == null)? 0 : Integer.parseInt(currentPageNo);
@@ -150,28 +128,8 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_u2.jsp").forward(request, response);
 			
 			break;
-			
-		/*
-		 * case "U_ID": beer = new BeerDTO();
-		 * 
-		 * beer.setB_id(Integer.parseInt(request.getParameter("b_id")));
-		 * beer.setB_code(request.getParameter("b_code"));
-		 * beer.setB_category(request.getParameter("b_category"));
-		 * beer.setB_name(request.getParameter("b_name"));
-		 * beer.setB_country(request.getParameter("b_country"));
-		 * beer.setB_price(Integer.parseInt(request.getParameter("b_price")));
-		 * beer.setB_alcohol(request.getParameter("b_alcohol"));
-		 * beer.setB_content(request.getParameter("b_content"));
-		 * beer.setB_like(Integer.parseInt(request.getParameter("b_like")));
-		 * beer.setB_dislike(Integer.parseInt(request.getParameter("b_dislike")));
-		 * 
-		 * result = beerDAO.updateBeer(beer);
-		 * 
-		 * if(result==true){ request.getRequestDispatcher("/index.jsp").forward(request,
-		 * response); } else {
-		 * request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").
-		 * forward(request, response); } break;
-		 */
+			*/
+
 		}
 	}
 	

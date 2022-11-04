@@ -100,16 +100,28 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			beer.setB_alcohol(multi.getParameter("b_alcohol"));
 			beer.setB_content(multi.getParameter("b_content"));
 			
+			String code = beerDAO.selectCategory_code(beer);
+			//System.out.println("beerDAO에서 받아온 category_code: "+code);
+			
+			beerDAO=new BeerDAO();
+			String code2 = beerDAO.selectCountry_code(beer);
+			//System.out.println("beerDAO에서 받아온 country_code: "+code2);
+
+			String b_code="BE"+code+code2;
+			beerDAO=new BeerDAO();
+			String code3=beerDAO.makeB_code(b_code);
+			System.out.println("만들코드: "+code3);
+			
+			beerDAO=new BeerDAO();
 			// beer에 추가
 			boolean test = beerDAO.insertBeer(beer);
-			System.out.println("beer insert 결과 "+test);
+			System.out.println("beer insert 결과: "+test);
 			
 			// beer에서 b_id 받아서 beerImage 추가
 			int b_id=0;
 			beerDAO=new BeerDAO();
 			try {
 				b_id = beerDAO.selectB_id(beer);
-				System.out.println(beer.getB_code());
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
