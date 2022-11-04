@@ -52,7 +52,7 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.setAttribute("beerList", beerList);
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r.jsp").forward(request, response);
 			break;
-		/*
+		
 		case "R4": // 페이징 기능 포함 R-모듈
 			currentPageNo = request.getParameter("currentPageNo");
 			cpn = (currentPageNo == null)? 0 : Integer.parseInt(currentPageNo);
@@ -78,7 +78,7 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			
 			break;
-		
+		/*
 		case "D_ID": // 조건에 해당하는 레코드 삭제 처리
 			int b_id = Integer.parseInt(request.getParameter("b_id"));
 			
@@ -128,8 +128,7 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_u2.jsp").forward(request, response);
 			
 			break;
-			*/
-
+		*/
 		}
 	}
 	

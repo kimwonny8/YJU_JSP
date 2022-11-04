@@ -80,7 +80,6 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 
 		switch(actionType){
 		case "C": // 기본데이터 입력 C-모듈
-			beerDAO=new BeerDAO();
 			beer = new BeerDTO();
 			
 			// 가격이 숫자가 아닐때 오류처리
@@ -91,8 +90,7 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			} catch(Exception e){
 				b_price = 0;
 			}
-			
-			beer.setB_code(multi.getParameter("b_code"));
+					
 			beer.setB_category(multi.getParameter("b_category"));
 			beer.setB_name(multi.getParameter("b_name"));
 			beer.setB_country(multi.getParameter("b_country"));
@@ -100,20 +98,28 @@ public class BeerMultiController extends HttpServlet implements Servlet{
 			beer.setB_alcohol(multi.getParameter("b_alcohol"));
 			beer.setB_content(multi.getParameter("b_content"));
 			
-			String code = beerDAO.selectCategory_code(beer);
-			//System.out.println("beerDAO에서 받아온 category_code: "+code);
-			
+			// 코드 자동생성 만드는 과정 
 			beerDAO=new BeerDAO();
-			String code2 = beerDAO.selectCountry_code(beer);
-			//System.out.println("beerDAO에서 받아온 country_code: "+code2);
-
+			String code = beerDAO.selectCategory_code(beer); // 종류코드 조회
+			beerDAO=new BeerDAO();
+			String code2 = beerDAO.selectCountry_code(beer); // 국가코드 조회
 			String b_code="BE"+code+code2;
 			beerDAO=new BeerDAO();
-			String code3=beerDAO.makeB_code(b_code);
-			System.out.println("만들코드: "+code3);
+			String code3=beerDAO.makeB_code(b_code); // 같은 종류, 국가 코드찾고 가장 큰 일련번호 확인
 			
-			beerDAO=new BeerDAO();
+			// 뒤에 4개 잘라서 일련번호 만들기
+			String tmp=code3.substring(7);
+			int tmp2=Integer.parseInt(tmp)+1;
+			if(tmp2<10) b_code="BE"+code+code2+"000"+tmp2; 
+			else if(tmp2<100) b_code="BE"+code+code2+"00"+tmp2;
+			else if(tmp2<1000) b_code="BE"+code+code2+"0"+tmp2;
+			else b_code="BE"+code+code2+tmp2;	
+			
+			System.out.println("만들 코드: "+b_code);
+			beer.setB_code(b_code);
+			
 			// beer에 추가
+			beerDAO=new BeerDAO();
 			boolean test = beerDAO.insertBeer(beer);
 			System.out.println("beer insert 결과: "+test);
 			

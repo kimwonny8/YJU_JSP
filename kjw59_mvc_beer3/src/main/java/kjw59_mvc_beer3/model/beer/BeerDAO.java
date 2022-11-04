@@ -70,7 +70,7 @@ public class BeerDAO {
 
 	// 게시판의 모든 레코드를 반환 메소드 - R
 	public ArrayList<BeerSelectInfoVO> getBeerList() {
-		ArrayList<BeerSelectInfoVO> beerList = new ArrayList<BeerSelectInfoVO>();
+		ArrayList<BeerSelectInfoVO> list = new ArrayList<BeerSelectInfoVO>();
 
 		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
 				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
@@ -80,9 +80,8 @@ public class BeerDAO {
 			pstmt = con.prepareStatement(SQL);
 			ResultSet rs = pstmt.executeQuery();
 			
-			boolean tmp=rs.next();
-			while (tmp) {
-				selectVO=new BeerSelectInfoVO();	
+			selectVO=new BeerSelectInfoVO();	
+			while (rs.next()) {
 
 				selectVO.setB_id(rs.getInt("b_id"));
 				selectVO.setB_code(rs.getString("b_code"));
@@ -96,7 +95,7 @@ public class BeerDAO {
 				selectVO.setB_dislike(rs.getInt("b_dislike"));
 				selectVO.setI_file_name(rs.getNString("i_file_name"));
 
-				beerList.add(selectVO);
+				list.add(selectVO);
 			}
 			rs.close();
 
@@ -105,16 +104,20 @@ public class BeerDAO {
 		} finally {
 			disConnect();
 		}
-		return beerList;
+		return list;
 	}
 
-	/*
+	
 	// 게시판의 현재 페이지 레코드를 반환 메서드 - R4 p29
-	public ArrayList<BeerDTO> getBeerListForPage(BeerPageInfoVO bpiVO) {
+	public ArrayList<BeerSelectInfoVO> getBeerListForPage(BeerPageInfoVO bpiVO) {
 
-		ArrayList<BeerDTO> list = new ArrayList<BeerDTO>();
+		ArrayList<BeerSelectInfoVO> list = new ArrayList<>();
 
-		String SQL = "select * from beer ORDER BY b_id limit ?,?";
+		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
+				+ "from beer b JOIN beer_image i on (b.b_id = i.b_id) ";
+		SQL+= "ORDER BY b.b_id limit ?,?";
+		
 		String SQL2 = "select count(*) from beer";
 
 		ResultSet rs;
@@ -140,29 +143,30 @@ public class BeerDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				BeerDTO beer = new BeerDTO();
-				BeerImageDTO beerImage= new BeerImageDTO();
+				selectVO.setB_id(rs.getInt("b_id"));
+				selectVO.setB_code(rs.getString("b_code"));
+				selectVO.setB_category(rs.getString("b_category"));
+				selectVO.setB_name(rs.getString("b_name"));
+				selectVO.setB_country(rs.getString("b_country"));
+				selectVO.setB_price(rs.getInt("b_price"));
+				selectVO.setB_alcohol(rs.getString("b_alcohol"));
+				selectVO.setB_content(rs.getString("b_content"));
+				selectVO.setB_like(rs.getInt("b_like"));
+				selectVO.setB_dislike(rs.getInt("b_dislike"));
+				selectVO.setI_file_name(rs.getNString("i_file_name"));
 
-				beer.setB_id(rs.getInt("b_id"));
-				beer.setB_code(rs.getString("b_code"));
-				beer.setB_category(rs.getString("b_category"));
-				beer.setB_name(rs.getString("b_name"));
-				beer.setB_country(rs.getString("b_country"));
-				beer.setB_price(rs.getInt("b_price"));
-				beer.setB_alcohol(rs.getString("b_alcohol"));
-				beer.setB_content(rs.getString("b_content"));
-				beer.setB_like(rs.getInt("b_like"));
-				beer.setB_dislike(rs.getInt("b_dislike"));
-				list.add(beer);
+				list.add(selectVO);
 			}
+			rs.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disConnect();
 		}
 		return list;
-
 	}
+
 
 	// 주 키 b_id의 레코드를 반환 메소드 - R
 	public BeerDTO getBeer(int b_id) {
@@ -194,7 +198,7 @@ public class BeerDAO {
 		}
 		return beer;
 	}
-	*/
+	
 
 	// 게시물 등록 메서드 - C
 	public boolean insertBeer(BeerDTO beer) {
@@ -354,27 +358,29 @@ public class BeerDAO {
 	}
 	
 	public String makeB_code(String b_code) {
-		String makeB_code="";
+		String make_code="";
 		
-		String sql="select b_code from beer where b_code like '?%' order by b_code desc";
+		String sql="select b_code from beer where b_code like ? order by b_code desc";
+	
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, b_code);
+			pstmt.setString(1, b_code+"%");
+			System.out.println(pstmt);
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {
-				b_code=rs.getString(1);
-				System.out.println("b_code: "+b_code);
+				make_code=rs.getString(1);
+				System.out.println("b_code: "+make_code);
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return makeB_code;
+			return make_code;
 			
 		} finally {
 			disConnect();
 		}
-		return makeB_code;
+		return make_code;
 		
 	}
 }
