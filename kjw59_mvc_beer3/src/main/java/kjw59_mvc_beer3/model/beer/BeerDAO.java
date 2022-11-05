@@ -73,8 +73,8 @@ public class BeerDAO {
 		ArrayList<BeerSelectInfoVO> list = new ArrayList<BeerSelectInfoVO>();	
 		
 		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
-				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
-				+ "from beer b JOIN beer_image i on (b.b_id = i.b_id)";
+				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+				+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) order by b.b_id";
 		
 		try {
 			pstmt = con.prepareStatement(SQL);
@@ -113,8 +113,8 @@ public class BeerDAO {
 		ArrayList<BeerSelectInfoVO> list = new ArrayList<>();
 
 		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
-				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, i.i_file_name "
-				+ "from beer b JOIN beer_image i on (b.b_id = i.b_id) ";
+				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+				+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id)";
 		SQL+= "ORDER BY b.b_id limit ?,?";
 		
 		String SQL2 = "select count(*) from beer";
