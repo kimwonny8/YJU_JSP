@@ -237,9 +237,10 @@ public class BeerDAO {
 		boolean success = false;
 	
 		String sql = "update beer set b_code=?, b_category=?, b_name=?, b_country=?, "
-				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=? where b_id=? ";
+				+ "b_price=?, b_alcohol=?, b_content=?, b_like=?, b_dislike=? where b_id=?";
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setString(1, beer.getB_code());
 			pstmt.setString(2, beer.getB_category());
 			pstmt.setString(3, beer.getB_name());
@@ -251,6 +252,7 @@ public class BeerDAO {
 			pstmt.setInt(9, beer.getB_dislike());
 			pstmt.setInt(10, beer.getB_id());
 
+			System.out.println("update문: "+pstmt);
 			int rowUdt = pstmt.executeUpdate();
 			if (rowUdt == 1)
 				success = true;
@@ -282,7 +284,7 @@ public class BeerDAO {
 		}
 		return success;
 	}
-	
+	/*
 	public int selectB_id(BeerDTO beer) throws SQLException {
 		int b_id=0;
 
@@ -306,7 +308,7 @@ public class BeerDAO {
 		
 		return b_id;
 	}
-	
+	*/
 	public String selectCategory_code(BeerDTO beer) {
 		String category_code="";
 		

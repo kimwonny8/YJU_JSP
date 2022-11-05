@@ -68,12 +68,32 @@ public class BeerImageDAO {
 		}
 	}
 
+	public boolean chkBeer(BeerImageDTO beer) {
+		boolean success = false;
+
+		String sql = "select * from beer_image where b_id = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, beer.getB_id());
+		
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) success = true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return success;
+		} finally {
+			disConnect();
+		}
+		return success;
+	}
 	
 	// 게시물 등록 메서드 - C
 	public boolean insertBeer(BeerImageDTO beer) {
 		boolean success = false;
 
-		String sql = "insert into beer_image values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into beer_image values(?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -81,8 +101,7 @@ public class BeerImageDAO {
 			pstmt.setString(2, beer.getI_original_name());
 			pstmt.setString(3, beer.getI_thumbnail_name());
 			pstmt.setString(4, beer.getI_file_type());
-			pstmt.setInt(5, beer.getI_file_size());
-			pstmt.setInt(6, beer.getB_id());
+			pstmt.setInt(5, beer.getB_id());
 		
 			pstmt.executeUpdate();
 			success = true;
@@ -100,8 +119,7 @@ public class BeerImageDAO {
 	public boolean updateBeer(BeerImageDTO beer) {
 		boolean success = false;
 	
-		String sql = "update beer set i_file_name=?, i_original_name=?, i_thumbnail_name=?, i_file_type=?, "
-				+ "i_file_size=? where b_id=? ";
+		String sql = "update beer_image set i_file_name=?, i_original_name=?, i_thumbnail_name=?, i_file_type=? where b_id=?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -110,8 +128,7 @@ public class BeerImageDAO {
 			pstmt.setString(2, beer.getI_original_name());
 			pstmt.setString(3, beer.getI_thumbnail_name());
 			pstmt.setString(4, beer.getI_file_type());
-			pstmt.setInt(5, beer.getI_file_size());
-			pstmt.setInt(6, beer.getB_id());
+			pstmt.setInt(5, beer.getB_id());
 			
 			int rowUdt = pstmt.executeUpdate();
 			if (rowUdt == 1)

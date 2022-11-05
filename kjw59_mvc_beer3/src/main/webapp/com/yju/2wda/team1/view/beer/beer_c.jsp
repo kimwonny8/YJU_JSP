@@ -20,6 +20,7 @@
 	<br>맥주알콜도수 : <input type="text" name="b_alcohol" size="30">
 	<br>맥주설명 : <input type="text" name="b_content" size="30">
 	<br>맥주사진 : <input type="file" name="b_image" size="30">
+	<br>맥주사진2 : <input type="file" name="b_image2" size="30">
 	<br><input type="hidden" name="actionType" value="C">
 	<br><input type="submit" value="저장">
 </form>

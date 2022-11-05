@@ -51,7 +51,6 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 		String i_file_name = "";
 		String i_original_name = "";
 		String i_file_type = "";
-		int i_file_size = 0;
 
 		long length = 0;
 
@@ -60,7 +59,6 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 			i_file_name = multi.getFilesystemName(element);
 			i_original_name = multi.getOriginalFileName(element);
 			i_file_type = multi.getContentType(element);
-			i_file_size = (int) multi.getFile(element).length();
 		}
 
 		String actionType = multi.getParameter("actionType");
@@ -110,15 +108,11 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 			// 뒤에 4개 잘라서 일련번호 만들기
 			String tmp = code3.substring(7);
 			int tmp2 = Integer.parseInt(tmp) + 1;
-			if (tmp2 < 10)
-				b_code = "BE" + code + code2 + "000" + tmp2;
-			else if (tmp2 < 100)
-				b_code = "BE" + code + code2 + "00" + tmp2;
-			else if (tmp2 < 1000)
-				b_code = "BE" + code + code2 + "0" + tmp2;
-			else
-				b_code = "BE" + code + code2 + tmp2;
-
+			if (tmp2 < 10) 	b_code="BE"+code+code2+"000"+ tmp2;
+			else if (tmp2 < 100) b_code="BE"+code+code2+"00"+ tmp2;
+			else if (tmp2 < 1000) b_code="BE"+code+code2+"0"+ tmp2;
+			else b_code="BE"+code+code2+tmp2;
+			
 			System.out.println("만들 코드: " + b_code);
 			beer.setB_code(b_code);
 
@@ -127,24 +121,15 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 			boolean test = beerDAO.insertBeer(beer);
 			System.out.println("beer insert 결과: " + test);
 
-			// beer에서 b_id 받아서 beerImage 추가
-			int b_id = 0;
-			beerDAO = new BeerDAO();
-			try {
-				b_id = beerDAO.selectB_id(beer);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
-			beerImageDAO = new BeerImageDAO();
 			// 이미지 관련
+			beerImageDAO = new BeerImageDAO();
 			beerImage = new BeerImageDTO();
-
+			
+			int b_id = beer.getB_id();
 			beerImage.setI_file_name(i_file_name);
 			beerImage.setI_original_name(i_original_name);
 			beerImage.setI_thumbnail_name("sm_" + i_original_name);
 			beerImage.setI_file_type(i_file_type);
-			beerImage.setI_file_size(i_file_size);
 			beerImage.setB_id(b_id);
 
 			result = beerImageDAO.insertBeer(beerImage);
@@ -168,7 +153,8 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 			} catch (Exception e) {
 				b_price = 0;
 			}
-
+			
+			beer.setB_id(Integer.parseInt(multi.getParameter("b_id")));
 			beer.setB_category(multi.getParameter("b_category"));
 			beer.setB_name(multi.getParameter("b_name"));
 			beer.setB_country(multi.getParameter("b_country"));
@@ -202,27 +188,26 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 			test = beerDAO.updateBeer(beer);
 			System.out.println("beer update 결과: " + test);
 
-			// beer에서 b_id 받아서 beerImage 추가
-			b_id = 0;
-			beerDAO = new BeerDAO();
-			try {
-				b_id = beerDAO.selectB_id(beer);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-
-			beerImageDAO = new BeerImageDAO();
 			// 이미지 관련
+			beerImageDAO = new BeerImageDAO();
 			beerImage = new BeerImageDTO();
 
+			b_id = beer.getB_id();
 			beerImage.setI_file_name(i_file_name);
 			beerImage.setI_original_name(i_original_name);
 			beerImage.setI_thumbnail_name("sm_" + i_original_name);
 			beerImage.setI_file_type(i_file_type);
-			beerImage.setI_file_size(i_file_size);
 			beerImage.setB_id(b_id);
 
-			result = beerImageDAO.updateBeer(beerImage);
+			// 값이 있는 건지 없는 건지 체크
+			boolean rs=beerImageDAO.chkBeer(beerImage);
+			beerImageDAO = new BeerImageDAO();
+			if(rs) {
+				result = beerImageDAO.updateBeer(beerImage);
+			}
+			else {
+				result = beerImageDAO.insertBeer(beerImage);
+			}
 
 			beerImageDAO.createImageThumb(imgDirPath, thumbImageDir, i_original_name, 5);
 
