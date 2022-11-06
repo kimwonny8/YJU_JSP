@@ -89,7 +89,7 @@ public class BeerImageDAO {
 		return success;
 	}
 	
-	// 게시물 등록 메서드 - C
+	// 이미지 등록 메서드 - C
 	public boolean insertBeer(BeerImageDTO beer) {
 		boolean success = false;
 
@@ -115,7 +115,7 @@ public class BeerImageDAO {
 		return success;
 	}
 
-	// 데이터 갱신을 위한 메서드 - U
+	// 이미지 갱신을 위한 메서드 - U
 	public boolean updateBeer(BeerImageDTO beer) {
 		boolean success = false;
 	

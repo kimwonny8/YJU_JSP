@@ -95,7 +95,7 @@ public class BeerDAO {
 					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) where b.b_name=? order by b.b_id";
 		}
 		
-
+		
 		try {
 			pstmt = con.prepareStatement(SQL);
 			pstmt.setString(1, searchContent);
@@ -365,6 +365,31 @@ public class BeerDAO {
 		}
 		return success;
 	}
+	
+	public int selectB_id(BeerDTO beer) throws SQLException {
+		int b_id=0;
+
+		String sql = "select b_id from beer where b_code = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, beer.getB_code());
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				b_id=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return b_id;
+			
+		} finally {
+			disConnect();
+		}
+		
+		return b_id;
+	}
+	
 
 	public String selectCategory_code(BeerDTO beer) {
 		String category_code="";
@@ -427,7 +452,9 @@ public class BeerDAO {
 			
 			if(rs.next()) {
 				make_code=rs.getString(1);
-				System.out.println("b_code: "+make_code);
+			}
+			else {
+				make_code=b_code+0000;
 			}
 
 		} catch (SQLException e) {
@@ -438,6 +465,32 @@ public class BeerDAO {
 			disConnect();
 		}
 		return make_code;
+		
+	}
+	
+	// 최종으로 들어갈 b_code
+	public String addB_code(BeerDTO beer) {
+		BeerDAO beerDAO;
+		
+		// 코드 자동생성 만드는 과정
+		beerDAO = new BeerDAO();
+		String code = beerDAO.selectCategory_code(beer); // 종류코드 조회
+		beerDAO = new BeerDAO();
+		String code2 = beerDAO.selectCountry_code(beer); // 국가코드 조회
+		String b_code = "BE" + code + code2;
+		beerDAO = new BeerDAO();
+		String code3 = beerDAO.makeB_code(b_code); // 같은 종류, 국가 코드찾고 가장 큰 일련번호 확인
+		System.out.println("code3:"+code3);
+		
+		// 뒤에 4개 잘라서 일련번호 만들기
+		String tmp = code3.substring(7);
+		int tmp2 = Integer.parseInt(tmp) + 1;
+		if (tmp2 < 10) 	b_code="BE"+code+code2+"000"+ tmp2;
+		else if (tmp2 < 100) b_code="BE"+code+code2+"00"+ tmp2;
+		else if (tmp2 < 1000) b_code="BE"+code+code2+"0"+ tmp2;
+		else b_code="BE"+code+code2+tmp2;
+		
+		return b_code;
 		
 	}
 }

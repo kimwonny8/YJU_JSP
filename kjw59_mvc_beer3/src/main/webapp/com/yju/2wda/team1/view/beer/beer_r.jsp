@@ -32,7 +32,10 @@
 	BeerSelectInfoVO selectVO;
 	ArrayList<BeerSelectInfoVO> beerList;
 	
+	String thumbImageDir = "/kjw59_mvc_beer3/com/yju/2wda/team1/image/thumb/";
+	
 	beerList = (ArrayList<BeerSelectInfoVO>)request.getAttribute("beerList");
+	
 %>
 <table border="1">
 	<thead>
@@ -53,6 +56,8 @@
 <%
 	for(int i=0; i<beerList.size(); i++){
 		selectVO = beerList.get(i);
+		String i_file_name = selectVO.getI_file_name();
+		String thumbsnail=thumbImageDir+"sm_"+i_file_name;
 %>	
 		<tr>
 			<td><%=selectVO.getB_id()%></td>
@@ -65,7 +70,8 @@
 			<td><%=selectVO.getB_content()%></td>
 			<td><%=selectVO.getB_like()%></td>
 			<td><%=selectVO.getB_dislike()%></td>
- 			<td><%=selectVO.getI_file_name()%></td> 
+			<td><%=selectVO.getI_file_name()%></td>
+ 			<td><img src="<%=thumbsnail%>" width="100"></td> 
 		</tr>
 <%
 	}

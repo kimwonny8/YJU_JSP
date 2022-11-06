@@ -26,8 +26,8 @@
 	<br>맥주가격 : <input type="text" name="b_price" size="30" value="<%=beer.getB_price()%>">
 	<br>맥주알콜도수 : <input type="text" name="b_alcohol" size="30" value="<%=beer.getB_alcohol()%>">
 	<br>맥주설명 : <input type="text" name="b_content" size="30" value="<%=beer.getB_content()%>">
-	<br>좋아요 : <input type="text" name="b_content" size="30" value="<%=beer.getB_like()%>">
-	<br>싫어요 : <input type="text" name="b_content" size="30" value="<%=beer.getB_dislike()%>">
+	<br>좋아요 : <input type="text" name="b_like" size="30" value="<%=beer.getB_like()%>">
+	<br>싫어요 : <input type="text" name="b_dislike" size="30" value="<%=beer.getB_dislike()%>">
 	<br>맥주사진 : <input type="file" name="b_image" size="30">
 	
 	<br><input type="hidden" name="actionType" value="U_ID">

@@ -16,6 +16,7 @@ public class BeerSelectInfoVO {
 	private int b_like;
 	private int b_dislike;
 	private String i_file_name;
+	private String i_original_file_name;
 
 	
 	public BeerSelectInfoVO() {
