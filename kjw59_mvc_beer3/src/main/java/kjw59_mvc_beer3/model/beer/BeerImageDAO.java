@@ -119,7 +119,8 @@ public class BeerImageDAO {
 	public boolean updateBeer(BeerImageDTO beer) {
 		boolean success = false;
 	
-		String sql = "update beer_image set i_file_name=?, i_original_name=?, i_thumbnail_name=?, i_file_type=? where b_id=?";
+		String sql = "update beer_image set i_file_name=?, i_original_name=?,"
+				+ " i_thumbnail_name=?, i_file_type=? where b_id=?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -144,7 +145,8 @@ public class BeerImageDAO {
 	}
 
 	// 썸네일
-	public void createImageThumb(String imgDirPath, String thumbImageDir, String originalFileName, int zoom) throws IOException {
+	public void createImageThumb(String imgDirPath, String thumbImageDir, 
+			String originalFileName, int zoom) throws IOException {
 
 		String oPath = imgDirPath + originalFileName; // 원본 경로
 		File oFile = new File(oPath);

@@ -1,8 +1,5 @@
 package kjw59_mvc_beer3.model.beer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BeerSelectInfoVO {
 	
 	private int b_id;
@@ -16,7 +13,6 @@ public class BeerSelectInfoVO {
 	private int b_like;
 	private int b_dislike;
 	private String i_file_name;
-	private String i_original_file_name;
 
 	
 	public BeerSelectInfoVO() {

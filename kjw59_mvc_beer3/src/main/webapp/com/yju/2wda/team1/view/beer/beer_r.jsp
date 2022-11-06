@@ -57,7 +57,7 @@
 	for(int i=0; i<beerList.size(); i++){
 		selectVO = beerList.get(i);
 		String i_file_name = selectVO.getI_file_name();
-		String thumbsnail=thumbImageDir+"sm_"+i_file_name;
+		String thumbsnail=thumbImageDir+"sm_"+i_file_name;	
 %>	
 		<tr>
 			<td><%=selectVO.getB_id()%></td>
