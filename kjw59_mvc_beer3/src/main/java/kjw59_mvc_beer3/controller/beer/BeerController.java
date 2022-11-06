@@ -47,7 +47,10 @@ public class BeerController extends HttpServlet implements Servlet {
 		switch(actionType){
 		
 		case "R": // 페이징 기능 없는 R-모듈
-			beerList = beerDAO.getBeerList();
+			String searchType=request.getParameter("searchType");
+			String searchContent=request.getParameter("searchContent");
+			
+			beerList = beerDAO.getBeerList(searchType, searchContent);
 
 			request.setAttribute("beerList", beerList);
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r.jsp").forward(request, response);
@@ -66,6 +69,20 @@ public class BeerController extends HttpServlet implements Servlet {
 			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r4.jsp").forward(request, response);
 			
 			break;
+			
+		case "R2": // 페이징 기능 포함 R-모듈
+			currentPageNo = request.getParameter("currentPageNo");
+			cpn = (currentPageNo == null)? 0 : Integer.parseInt(currentPageNo);
+			
+			bpiVO.setCurrentPageNo(cpn);
+			bpiVO.adjPageInfo();
+			
+			beerList = beerDAO.getBeerListForPage(bpiVO);
+			
+			request.setAttribute("beerList", beerList);
+			request.getRequestDispatcher("/com/yju/2wda/team1/view/beer/beer_r4.jsp").forward(request, response);
+			
+			break;	
 		
 		case "R_DRC": // 페이지당 디스플레이 레코드 갯수 변경 처리
 			displayRecordCnt = request.getParameter("displayRecordCnt");

@@ -69,15 +69,36 @@ public class BeerDAO {
 	}
 
 	// 게시판의 모든 레코드를 반환 메소드 - R
-	public ArrayList<BeerSelectInfoVO> getBeerList() {
+	public ArrayList<BeerSelectInfoVO> getBeerList(String searchType, String searchContent) {
 		ArrayList<BeerSelectInfoVO> list = new ArrayList<BeerSelectInfoVO>();	
+		String SQL;
+		System.out.println(searchType);
 		
-		String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
-				+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
-				+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) order by b.b_id";
+		if(searchType.equals("전체")) {
+			SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+					+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) order by b.b_id";
+		}
+		else if(searchType.equals("종류")) {
+			SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+					+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) where b.b_category=? order by b.b_id";
+		}
+		else if(searchType.equals("국가")) {
+			SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+					+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) where b.b_country=? order by b.b_id";
+		}
+		else {
+			SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+					+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id) where b.b_name=? order by b.b_id";
+		}
 		
+
 		try {
 			pstmt = con.prepareStatement(SQL);
+			pstmt.setString(1, searchContent);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
@@ -167,6 +188,66 @@ public class BeerDAO {
 		return list;
 	}
 
+	// R2에 들어갈 종류별 검색 조회
+		public ArrayList<BeerSelectInfoVO> getSearchList(BeerPageInfoVO bpiVO, String search) {
+
+			ArrayList<BeerSelectInfoVO> list = new ArrayList<>();
+			
+			String SQL = "select b.b_id, b.b_code, b.b_category, b.b_name, b.b_country, "
+					+ "b.b_price, b.b_alcohol, b.b_content, b.b_like, b.b_dislike, IFNULL(i.i_file_name, 'default.jpg') AS i_file_name "
+					+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id)";
+			SQL+= "ORDER BY b.b_id limit ?,?";
+			
+			String SQL2 = "select count(*) from beer";
+
+			ResultSet rs;
+
+			try {
+				pstmt = con.prepareStatement(SQL2);
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+					bpiVO.setRecordCnt(rs.getInt(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			bpiVO.adjPageInfo();
+
+			try {
+				pstmt = con.prepareStatement(SQL);
+				pstmt.setInt(1, bpiVO.getStartRecord());
+				pstmt.setInt(2, bpiVO.getLimitCnt());
+
+				rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+					BeerSelectInfoVO selectVO=new BeerSelectInfoVO();
+					selectVO.setB_id(rs.getInt("b_id"));
+					selectVO.setB_code(rs.getString("b_code"));
+					selectVO.setB_category(rs.getString("b_category"));
+					selectVO.setB_name(rs.getString("b_name"));
+					selectVO.setB_country(rs.getString("b_country"));
+					selectVO.setB_price(rs.getInt("b_price"));
+					selectVO.setB_alcohol(rs.getString("b_alcohol"));
+					selectVO.setB_content(rs.getString("b_content"));
+					selectVO.setB_like(rs.getInt("b_like"));
+					selectVO.setB_dislike(rs.getInt("b_dislike"));
+					selectVO.setI_file_name(rs.getNString("i_file_name"));
+
+					list.add(selectVO);
+				}
+				rs.close();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				disConnect();
+			}
+			return list;
+		}
+	
 
 	// 주 키 b_id의 레코드를 반환 메소드 - R
 	public BeerDTO getBeer(int b_id) {
@@ -284,31 +365,7 @@ public class BeerDAO {
 		}
 		return success;
 	}
-	/*
-	public int selectB_id(BeerDTO beer) throws SQLException {
-		int b_id=0;
 
-		String sql = "select b_id from beer where b_code = ?";
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, beer.getB_code());
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				b_id=rs.getInt(1);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return b_id;
-			
-		} finally {
-			disConnect();
-		}
-		
-		return b_id;
-	}
-	*/
 	public String selectCategory_code(BeerDTO beer) {
 		String category_code="";
 		

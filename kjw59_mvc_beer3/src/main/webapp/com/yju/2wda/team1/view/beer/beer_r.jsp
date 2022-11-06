@@ -13,7 +13,20 @@
 <body>
 <h1>마이쇼핑몰(KJW59) - 맥주자료조회(R)</h1>
 <hr>
-<h2>전체보기(부분조회, 페이징기능 미포함)</h2>
+<h2>전체보기(부분조회 포함, 페이징기능 미포함)</h2>
+
+<form method="post" action="./BeerController.be">
+	종류별 검색: 
+	<select name="searchType">
+		<option value="전체" selected>전체</option>
+		<option value="종류">종류</option>
+		<option value="국가">원산지</option>
+		<option value="이름">이름</option>
+	</select>
+	<input type="text" name="searchContent">
+	<input type="hidden" name="actionType" value="R">
+	<input type="submit" value="검색">
+</form>
 
 <%
 	BeerSelectInfoVO selectVO;

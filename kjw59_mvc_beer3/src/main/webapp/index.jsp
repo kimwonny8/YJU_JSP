@@ -17,7 +17,7 @@
 <ul>
 <li><a href="<%=beerViewDir%>/beer_r_drc.jsp">출력레코드갯수조정(R_DRC)</a>
 <li><a href="<%=beerViewDir%>/beer_c.jsp">맥주정보입력(C)</a>
-<li><a href="./BeerController.be?actionType=R">맥주정보조회(R,페이징기능X)</a>
+<li><a href="./BeerController.be?searchType=전체&actionType=R">맥주정보조회(R,부분조회포함,페이징기능X)</a>
 <li><a href="./BeerController.be?actionType=R4">맥주정보조회(R4,MVC패턴적용)</a>
 <li><a href="./BeerController.be?actionType=U">맥주정보조회(U,MVC패턴적용)</a>
 <li><a href="./BeerController.be?actionType=D">맥주정보조회(D,MVC패턴적용)</a>

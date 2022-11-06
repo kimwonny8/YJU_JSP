@@ -76,7 +76,7 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 
 		boolean result;
 
-		switch (actionType) {
+		switch (actionType) {	
 		case "C": // 기본데이터 입력 C-모듈
 			beer = new BeerDTO();
 
@@ -217,7 +217,6 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 				request.getRequestDispatcher("/com/yju/2wda/team1/view/etc/error.jsp").forward(request, response);
 			}
 			break;
-
 		}
 	}
 
