@@ -145,7 +145,7 @@ public class BeerDAO {
 				+ "from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id)";
 		SQL+= "ORDER BY b.b_id limit ?,?";
 		
-		String SQL2 = "select count(*) from beer";
+		String SQL2 = "select count(*) from beer b LEFT JOIN beer_image i on (b.b_id = i.b_id)";
 
 		ResultSet rs;
 

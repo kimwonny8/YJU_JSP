@@ -114,14 +114,14 @@ public class BeerMultiController extends HttpServlet implements Servlet {
 				i_file_type = multi.getContentType(element);
 				
 				if(i_file_name!=null) {	
-				beerImage.setI_file_name(i_file_name);
-				beerImage.setI_original_name(i_original_name);
-				beerImage.setI_thumbnail_name("sm_" + i_original_name);
-				beerImage.setI_file_type(i_file_type);
-				beerImage.setB_id(b_id);
+					beerImage.setI_file_name(i_file_name);
+					beerImage.setI_original_name(i_original_name);
+					beerImage.setI_thumbnail_name("sm_" + i_original_name);
+					beerImage.setI_file_type(i_file_type);
+					beerImage.setB_id(b_id);
 
-				beerImageDAO.insertBeer(beerImage);
-				beerImageDAO.createImageThumb(imgDirPath, thumbImageDir, i_file_name, 5);
+					beerImageDAO.insertBeer(beerImage);
+					beerImageDAO.createImageThumb(imgDirPath, thumbImageDir, i_file_name, 5);
 				}
 			}
 
