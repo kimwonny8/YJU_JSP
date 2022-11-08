@@ -17,7 +17,7 @@
 	BeerDTO beer = (BeerDTO)request.getAttribute("beer");
 	%>
 	
-	<form method="post" action="<%=beerContDir%>/BeerController.be3">
+	<form method="post" action="./BeerController.be">
 		<br>맥주번호(수정불가) : <input type="text" name="b_id" value="<%=beer.getB_id()%>" readonly>
 		<br>맥주코드 : <input type="text" name="b_code" value="<%=beer.getB_code()%>" size="30">
 		<br>맥주종류 : <input type="text" name="b_category" value="<%=beer.getB_category()%>" size="30">

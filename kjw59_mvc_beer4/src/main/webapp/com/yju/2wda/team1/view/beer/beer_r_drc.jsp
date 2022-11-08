@@ -26,7 +26,7 @@
 
 	<h2>현재 DISPLAY RECORDS NUMBER : <%=limitCnt %></h2>
 	<hr>
-	<form method="post" action="<%=beerContDir%>/BeerController.be?actionType=R_DRC">
+	<form method="post" action="./BeerController.be?actionType=R_DRC">
 		디스플레이 레코드 수 변경 :
 		<select name="displayRecordCnt">
 			<option SELECTED value="10">10</option>

@@ -62,7 +62,7 @@
 				<td><%=beer.getB_like()%></td>
 				<td><%=beer.getB_dislike()%></td>
 				<td><%=beer.getB_image()%></td>
-				<td><a href="<%=beerContDir%>/BeerController.be3?actionType=U2&b_id=<%=beer.getB_id()%>">UPDATE</a></td>
+				<td><a href="<%=beerContDir%>/BeerController.be?actionType=U2&b_id=<%=beer.getB_id()%>">UPDATE</a></td>
 			</tr>
 			<%
 			}
@@ -70,11 +70,11 @@
 		</tbody>
 	</table>
 	
-	<a href="<%=beerContDir%>/BeerController.be3?actionType=U&currentPageNo=0">[FIRST]</a>
+	<a href="<%=beerContDir%>/BeerController.be?actionType=U&currentPageNo=0">[FIRST]</a>
 	<%
 	if (currentPageNo > 0) {
 	%>
-	<a href="<%=beerContDir%>/BeerController.be3?actionType=U&currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
+	<a href="<%=beerContDir%>/BeerController.be?actionType=U&currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
 	<%
 	} else {
 		%>
@@ -90,7 +90,7 @@
 		<%
 		} else {
 		%>
-		<a href="<%=beerContDir%>/BeerController.be3?actionType=U&currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
+		<a href="<%=beerContDir%>/BeerController.be?actionType=U&currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
 		<%
 		}
 	}
@@ -98,7 +98,7 @@
 	<%
 	if (currentPageNo < bpiVO.getPageCnt() - 1) {
 		%>
-		<a href="<%=beerContDir%>/BeerController.be3?actionType=U&currentPageNo=<%=(currentPageNo+1)%>">[NXT]</a>
+		<a href="<%=beerContDir%>/BeerController.be?actionType=U&currentPageNo=<%=(currentPageNo+1)%>">[NXT]</a>
 		<%
 	} else {
 	%>
@@ -107,7 +107,7 @@
 	}
 	%>
 	
-	<a href="<%=beerContDir%>/BeerController.be3?actionType=U&currentPageNo=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
+	<a href="<%=beerContDir%>/BeerController.be?actionType=U&currentPageNo=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
 	
 	<br><a href="<%=rootDir%>/index.jsp">홈으로 돌아가기</a>
 </body>

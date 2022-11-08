@@ -16,11 +16,11 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   <servlet>
-    <servlet-name>BeerController</servlet-name>
-    <servlet-class>kjw59_mvc_beer4.controller.beer.BeerController</servlet-class>
+    <servlet-name>BeerFrontController</servlet-name>
+    <servlet-class>kjw59_mvc_beer4.controller.beer.BeerFrontController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>BeerController</servlet-name>
-    <url-pattern>*.be3</url-pattern>
+    <servlet-name>BeerFrontController</servlet-name>
+    <url-pattern>*.be</url-pattern>
   </servlet-mapping>
 </web-app>
