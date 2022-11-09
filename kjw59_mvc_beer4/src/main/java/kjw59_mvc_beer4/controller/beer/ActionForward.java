@@ -2,7 +2,7 @@ package kjw59_mvc_beer4.controller.beer;
 
 public class ActionForward {
 	
-	private boolean isRedirect = false;
+	private boolean isRedirect = false; // false => 처리하고 보내겠다, true => 바로 보내겠다
 	private String path = null;
 	
 	public boolean isRedirect() {

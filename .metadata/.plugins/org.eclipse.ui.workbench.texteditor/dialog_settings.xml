@@ -6,25 +6,33 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="thumbImageDir"/>
+		<item key="selection" value="./updaterBeerListDisplay.be?currentPageNo"/>
 		<list key="findhistory">
+			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=U&amp;currentPageNo"/>
+			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=R4&amp;currentPageNo"/>
+			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=D&amp;currentPageNo"/>
+			<item value="be3"/>
+			<item value="BeerController"/>
+			<item value="BeerController.be"/>
+			<item value="eerController.be"/>
+			<item value="be"/>
+			<item value="team4"/>
 			<item value="thumbImageDir"/>
 			<item value="thumbsnail"/>
 			<item value="i_file_name"/>
 			<item value="getBeerListForPage"/>
 			<item value="i_file_size"/>
 			<item value="beer update 결과"/>
-			<item value=": false"/>
-			<item value="selectList"/>
-			<item value="beerList"/>
-			<item value="test"/>
-			<item value="ResultSet"/>
-			<item value="filesystemName"/>
-			<item value="&lt;%=beerContDir%&gt;/BeerController.jsp?"/>
-			<item value="currentPage="/>
-			<item value="userName"/>
 		</list>
 		<list key="replacehistory">
+			<item value="./updaterBeerListDisplay.be?currentPageNo"/>
+			<item value="./getBeerListForPage.be?currentPageNo"/>
+			<item value="./deleteBeerListDisplay.be?currentPageNo"/>
+			<item value="be"/>
+			<item value="BeerController.be3"/>
+			<item value="eerController.be3"/>
+			<item value="be3"/>
+			<item value="team1"/>
 			<item value="./BeerController.be?"/>
 			<item value="currentPageNo="/>
 			<item value=""/>
@@ -32,21 +40,13 @@
 			<item value="actionType=U2"/>
 			<item value="actionType=D"/>
 			<item value=" "/>
-			<item value="rs.getString"/>
-			<item value="thumbFileName"/>
-			<item value="orgFileName"/>
-			<item value="tempLimitCnt"/>
-			<item value="tempCurrentPageNo"/>
-			<item value="agree"/>
-			<item value="response.sendRedirect(&quot;./index_kjw59.jsp&quot;);"/>
-			<item value="covid_r_kjw59"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="741"/>
 		<item key="DIALOG_Y_ORIGIN" value="220"/>
-		<item key="DIALOG_WIDTH" value="369"/>
-		<item key="DIALOG_HEIGHT" value="454"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|맑은 고딕"/>
 	</section>
 </section>

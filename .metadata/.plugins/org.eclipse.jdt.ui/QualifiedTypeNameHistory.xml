@@ -5,4 +5,8 @@
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="kjw59_mvc_beer2.model.beer.BeerDTO"/>
     <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="kjw59_mvc_beer4.controller.beer.action.InsertBeerAction"/>
+    <fullyQualifiedTypeName name="javax.swing.Action"/>
+    <fullyQualifiedTypeName name="kjw59_mvc_beer4.controller.beer.Action"/>
+    <fullyQualifiedTypeName name="kjw59_mvc_beer4.model.beer.BeerDAO"/>
 </qualifiedTypeNameHistroy>

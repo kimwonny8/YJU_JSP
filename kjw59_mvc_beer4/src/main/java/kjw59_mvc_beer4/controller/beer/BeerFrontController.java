@@ -42,7 +42,7 @@ public class BeerFrontController extends HttpServlet implements Servlet {
 		case "/insertBeer.be":
 			action = new InsertBeerAction();
 			break;
-			
+		
 		case "/getBeerList.be":
 			action = new GetBeerListAction();
 			break;

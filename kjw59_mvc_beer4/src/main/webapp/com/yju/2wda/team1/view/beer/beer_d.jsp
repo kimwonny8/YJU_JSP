@@ -61,7 +61,7 @@
 				<td><%=beer.getB_like()%></td>
 				<td><%=beer.getB_dislike()%></td>
 				<td><%=beer.getB_image()%></td>
-				<td><a href="<%=beerContDir%>/BeerController.be?actionType=D_ID&b_id=<%=beer.getB_id()%>">DELETE</a></td>
+				<td><a href="./deleteBeerForID.be?b_id=<%=beer.getB_id()%>">DELETE</a></td>
 			</tr>
 			<%
 		}
@@ -69,11 +69,11 @@
 		</tbody>
 	</table>
 	
-	<a href="<%=beerContDir%>/BeerController.be?actionType=D&currentPageNo=0">[FIRST]</a>
+	<a href="./deleteBeerListDisplay.be?currentPageNo=0">[FIRST]</a>
 	<%
 	if (currentPageNo > 0) {
 	%>
-	<a href="<%=beerContDir%>/BeerController.be?actionType=D&currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
+	<a href="./deleteBeerListDisplay.be?currentPageNo=<%=(currentPageNo-1)%>">[PRE]</a>
 	<%
 	} else {
 		%>
@@ -89,7 +89,7 @@
 		<%
 		} else {
 		%>
-		<a href="<%=beerContDir%>/BeerController.be?actionType=D&currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
+		<a href="./deleteBeerListDisplay.be?currentPageNo=<%=i%>">[<%=(i+1)%>]</a>
 		<%
 		}
 	}
@@ -97,7 +97,7 @@
 	<%
 	if (currentPageNo < bpiVO.getPageCnt() - 1) {
 		%>
-		<a href="<%=beerContDir%>/BeerController.be?actionType=D&currentPageNo=<%=(currentPageNo+1)%>">[NXT]</a>
+		<a href="./deleteBeerListDisplay.be?currentPageNo=<%=(currentPageNo+1)%>">[NXT]</a>
 		<%
 	} else {
 	%>
@@ -106,7 +106,7 @@
 	}
 	%>
 	
-	<a href="<%=beerContDir%>/BeerController.be?actionType=D&currentPageNo=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
+	<a href="./deleteBeerListDisplay.be?currentPageNo=<%=(bpiVO.getPageCnt()-1)%>">[END]</a>
 	
 	<br><a href="<%=rootDir%>/index.jsp">홈으로 돌아가기</a>
 </body>
