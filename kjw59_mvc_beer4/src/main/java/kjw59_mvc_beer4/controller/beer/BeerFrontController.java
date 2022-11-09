@@ -59,6 +59,10 @@ public class BeerFrontController extends HttpServlet implements Servlet {
 			action = new DeleteBeerForIDAction();
 			break;
 			
+		case "/deleteBeerListDisplay.be":
+			action = new DeleteBeerListDisplayAction();
+			break;
+			
 		case "/updateBeerListDisplay.be":
 			action = new UpdateBeerListDisplayAction();
 			break;	
