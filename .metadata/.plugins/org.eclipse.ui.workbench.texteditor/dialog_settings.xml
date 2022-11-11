@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="./updaterBeerListDisplay.be?currentPageNo"/>
+		<item key="selection" value="deleteBeerListDisplay"/>
 		<list key="findhistory">
+			<item value="deleteBeerListDisplay"/>
+			<item value="./updaterBeerListDisplay"/>
 			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=U&amp;currentPageNo"/>
 			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=R4&amp;currentPageNo"/>
 			<item value="&lt;%=beerContDir%&gt;/BeerController.be?actionType=D&amp;currentPageNo"/>
@@ -21,10 +23,9 @@
 			<item value="thumbsnail"/>
 			<item value="i_file_name"/>
 			<item value="getBeerListForPage"/>
-			<item value="i_file_size"/>
-			<item value="beer update 결과"/>
 		</list>
 		<list key="replacehistory">
+			<item value="./updateBeerListDisplay"/>
 			<item value="./updaterBeerListDisplay.be?currentPageNo"/>
 			<item value="./getBeerListForPage.be?currentPageNo"/>
 			<item value="./deleteBeerListDisplay.be?currentPageNo"/>
@@ -39,7 +40,6 @@
 			<item value="actionType=U"/>
 			<item value="actionType=U2"/>
 			<item value="actionType=D"/>
-			<item value=" "/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
