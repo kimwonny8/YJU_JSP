@@ -96,8 +96,8 @@ public class BeerFrontController extends HttpServlet implements Servlet {
 				dispatcher.forward(request, response);
 			}
 		}
-		
 	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		doProcess(request, response);
